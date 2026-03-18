@@ -1,0 +1,105 @@
+---
+title: "Your First Conversation"
+description: "A hands-on walkthrough of talking to Ori — from simple questions to using tools, memory, and computer control."
+---
+
+Once you've completed onboarding, you're on Ori's **Home screen**. The prompt box is front and center — just start typing.
+
+## Try these
+
+Here's a progression from simple to powerful, so you can feel what Ori is capable of:
+
+### 1. Ask a question
+
+```
+What's the difference between REST and GraphQL?
+```
+
+Ori responds like any AI — but it's running locally, with your chosen model, and no data leaves your machine.
+
+### 2. Use a tool
+
+```
+What files are in ~/Documents?
+```
+
+Ori reads your filesystem and shows the contents. It picked the **read** tool automatically — you didn't have to specify anything.
+
+### 3. Search the web
+
+```
+Search the web for the best TypeScript frameworks in 2026
+```
+
+Ori runs a web search, synthesizes the results, and gives you a summary with sources.
+
+### 4. Remember something
+
+```
+Remember that I'm working on a project called Atlas, it's a Next.js 15 app with Drizzle ORM
+```
+
+Ori saves this to its **persistent memory**. In future conversations — even days later — it knows about Atlas without you repeating yourself.
+
+### 5. Use your screen
+
+```
+Take a screenshot and describe what you see on my screen
+```
+
+Ori captures your display and describes the content. It can also **click**, **type**, **scroll**, and **press keys** — try asking it to interact with what it sees.
+
+### 6. Create a scheduled task
+
+```
+Every weekday at 9am, summarize the top 5 Hacker News stories
+```
+
+Ori creates a **scheduled task** that runs automatically. You'll see results in your Home view.
+
+## How Ori picks tools
+
+You never need to tell Ori which tool to use. Behind the scenes, every request flows through a **Skill Graph**:
+
+```
+Your message → Skill Graph → Best 4-8 tools selected → Agent executes → Memory updated → Response streamed
+```
+
+The Skill Graph is a semantic map of all available tools. It scores each tool against your query and picks the best fit — zero extra tokens used for routing.
+
+## Conversations and threads
+
+- Each conversation is a **thread** — it persists and you can revisit it anytime
+- Press **`⌘ K`** to search through your threads
+- Press **`⌘ N`** to start a new conversation
+- Ori remembers context within a thread and across threads (via memory)
+
+## The Home screen
+
+Your Home screen shows:
+
+- **Prompt box** — Start a new conversation or continue
+- **Briefing cards** — Contextual information based on your projects and the time of day
+- **Scheduled tasks** — Create and manage recurring agent jobs
+- **Thread history** — Recent conversations for quick access
+
+<Tip>
+  The more you use Ori, the more personalized your Home screen becomes. Briefing cards adapt based on your projects, time zone, and recent activity.
+</Tip>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="What can Ori do?" icon="sparkles" href="/get-started/what-can-ori-do">
+    The complete feature list with examples.
+  </Card>
+  <Card title="Coding with Ori" icon="code" href="/guides/coding-with-ori">
+    Read code, write files, run commands, manage Git.
+  </Card>
+  <Card title="Memory system" icon="brain" href="/features/memory">
+    How Ori learns and remembers — and how you control it.
+  </Card>
+  <Card title="Computer Use" icon="display" href="/features/computer-use">
+    Automate your screen — clicks, typing, scrolling, and more.
+  </Card>
+</CardGroup>

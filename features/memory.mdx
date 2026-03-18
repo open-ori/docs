@@ -1,0 +1,83 @@
+---
+title: "Persistent Memory"
+description: "Ori remembers what you tell it — preferences, facts, patterns. Your AI gets smarter with every conversation."
+---
+
+Memory is what separates Ori from every other AI app. While others start from zero every conversation, Ori **remembers**.
+
+## How it works
+
+After every conversation, Ori runs a lightweight extraction pass that identifies:
+
+- **Facts** — "I work at Acme Corp", "My project uses Next.js 15"
+- **Preferences** — "I prefer TypeScript strict mode", "Use Tailwind v4"
+- **Patterns** — "When I ask about code, I usually mean the Atlas project"
+- **Corrections** — "Actually, I meant Python, not JavaScript" updates existing memory
+
+This happens automatically. Just talk to Ori naturally — it learns on its own.
+
+## Example
+
+**Day 1:**
+> You: "Help me set up a new Node.js project"
+> Ori: Creates a basic JavaScript project
+
+**Day 30** (after learning your preferences):
+> You: "Help me set up a new Node.js project"
+> Ori: Creates a TypeScript project with strict mode, ESLint, your preferred folder structure, and Drizzle ORM — because it remembers everything from previous conversations
+
+**This is the "gets smarter with use" effect.** Every conversation teaches Ori something new.
+
+## The three tiers
+
+Ori uses a tiered loading system to keep token usage efficient:
+
+| Tier | Size | What it holds | When loaded |
+|:-----|:-----|:-------------|:------------|
+| **L0 (Abstract)** | ~100 tokens | One-line summary of each memory | Every conversation |
+| **L1 (Overview)** | ~2K tokens | Structured detail, key facts | When the topic is relevant |
+| **L2 (Full)** | Variable | Complete context, full histories | On explicit demand |
+
+Ori always has broad awareness of everything it knows (L0), loads details when needed (L1), and pulls full context only when deep-diving (L2).
+
+## Recall mode
+
+The **Recall** toggle in the prompt box controls memory injection:
+
+- **Recall ON** — Ori searches its memory and includes relevant context in the conversation. It knows who you are and what you're working on.
+- **Recall OFF** — Clean conversation with no memory. Useful for generic questions or when helping someone else.
+
+<Tip>
+  Recall is ON by default. Toggle it off when you want Ori to respond without personal context.
+</Tip>
+
+## Managing your memories
+
+Open **Settings** → **Context** tab to:
+
+- **View all memories** — See everything Ori has learned, organized by category
+- **Delete individual memories** — Remove anything you don't want remembered
+- **View the Context Graph** — A visual graph showing relationships between your memories, projects, and preferences
+- **Check stats** — Total memory count, project count, index size
+
+<Note>
+  Ori is fully transparent. You can see, edit, and delete everything it remembers. There are no hidden memories.
+</Note>
+
+## How memories are stored
+
+```
+~/.ori/context/
+├── user/                    # About you
+│   ├── brain.json           # Core identity: name, timezone, preferences
+│   └── preferences/         # Domain-specific preferences
+│       ├── coding.json      # "Uses TypeScript, prefers strict mode"
+│       └── communication.json
+├── projects/                # Your workspaces
+│   └── <workspace-hash>/
+│       └── context.json     # Tech stack, conventions, structure
+└── agent/                   # Operational context
+    └── memories/            # Extracted facts and patterns
+```
+
+Everything is plain JSON — portable and inspectable.

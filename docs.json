@@ -1,56 +1,57 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "NIOM",
+  "name": "Ori",
   "colors": {
-    "primary": "#5B3FE6",
-    "light": "#7c6aff",
-    "dark": "#5B3FE6"
+    "primary": "#7c5cfc",
+    "light": "#a78bfa",
+    "dark": "#6d4cef"
   },
-  "favicon": "/niom-logo.png",
+  "favicon": "/logo/ori-logo.png",
   "navigation": {
     "tabs": [
       {
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting Started",
+            "group": "Get Started",
             "pages": [
               "index",
-              "quickstart",
-              "configuration"
+              "get-started/installation",
+              "get-started/first-conversation",
+              "get-started/what-can-ori-do"
             ]
           },
           {
-            "group": "Core Features",
+            "group": "Features",
             "pages": [
-              "guides/memory",
-              "guides/skill-routing",
-              "guides/background-tasks",
-              "guides/tools",
-              "guides/project-awareness"
+              "features/memory",
+              "features/computer-use",
+              "features/scheduled-tasks",
+              "features/connectors",
+              "features/skill-routing",
+              "features/spotlight",
+              "features/project-awareness"
             ]
           },
           {
-            "group": "Advanced",
+            "group": "Guides",
             "pages": [
-              "guides/keyboard-shortcuts",
-              "guides/ollama",
-              "guides/privacy"
+              "guides/coding-with-ori",
+              "guides/research-with-ori",
+              "guides/automating-workflows",
+              "guides/using-ollama"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Architecture",
-        "groups": [
+          },
           {
-            "group": "System Design",
+            "group": "Reference",
             "pages": [
-              "architecture/overview",
-              "architecture/context-engine",
-              "architecture/skill-tree",
-              "architecture/task-system"
+              "reference/providers-and-models",
+              "reference/tools",
+              "reference/keyboard-shortcuts",
+              "reference/mcp-server",
+              "reference/data-and-privacy",
+              "reference/configuration"
             ]
           }
         ]
@@ -60,38 +61,44 @@
       "anchors": [
         {
           "anchor": "GitHub",
-          "href": "https://github.com/niomstack/niom",
+          "href": "https://github.com/open-ori/ori",
           "icon": "github"
         },
         {
-          "anchor": "Releases",
-          "href": "https://github.com/niomstack/niom/releases",
+          "anchor": "Website",
+          "href": "https://www.openori.ai",
+          "icon": "globe"
+        },
+        {
+          "anchor": "Download",
+          "href": "https://github.com/open-ori/ori/releases",
           "icon": "download"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/niom-logo-text-light.svg",
-    "dark": "/logo/niom-logo-text-dark.svg"
+    "light": "/logo/ori-logo-text-light.svg",
+    "dark": "/logo/ori-logo-text-dark.svg"
   },
   "navbar": {
     "links": [
       {
         "label": "GitHub",
-        "href": "https://github.com/niomstack/niom"
+        "href": "https://github.com/open-ori/ori"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Download",
-      "href": "https://github.com/niomstack/niom/releases"
+      "href": "https://www.openori.ai"
     }
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/niomstack/niom",
-      "x": "https://x.com/niomdev"
+      "github": "https://github.com/open-ori/ori",
+      "website": "https://www.openori.ai",
+      "x": "https://x.com/openoridev"
     }
   },
   "seo": {

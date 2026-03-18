@@ -1,91 +1,81 @@
 ---
-title: "NIOM — AI that remembers you"
-description: "A local-first AI agent that lives on your desktop. It remembers your preferences, learns your patterns, routes every request through an intelligent Skill Tree, and runs background tasks autonomously — with any model you choose."
+title: "Ori — AI that remembers you"
+description: "A local-first AI agent for your desktop. Persistent memory, computer use, scheduled tasks, and intelligent skill routing — with any model you choose."
 ---
 
-NIOM is a desktop AI agent that runs entirely on your machine. It remembers what you tell it, understands your projects, picks the right tools for every request, and executes tasks in the background while you keep working.
+Ori is a desktop AI agent that runs entirely on your machine. It remembers your preferences, understands your projects, controls your screen, runs tasks on autopilot, and picks the right tools for every request.
 
-It's not a chat wrapper. It's a system that gets smarter the more you use it.
+It's not a chat wrapper. It's a personal AI that gets smarter every time you use it.
 
 <Note>
-  NIOM is open source and free. All data stays on your machine. [View on GitHub →](https://github.com/niomstack/niom)
+  Ori is open source and free. All data stays on your machine. [View on GitHub →](https://github.com/open-ori/ori)
 </Note>
 
-## Get started
+## Get started in 2 minutes
+
+<Steps>
+<Step title="Download Ori">
+  Grab the latest release for your platform from [GitHub Releases](https://github.com/open-ori/ori/releases/latest).
+</Step>
+<Step title="Add your API key">
+  The onboarding wizard walks you through connecting Anthropic, OpenAI, Google, or Ollama.
+</Step>
+<Step title="Start chatting">
+  Type naturally. Ori selects the right tools, remembers what you tell it, and gets better over time.
+</Step>
+</Steps>
+
+<Tip>
+  Press `⌥ Space` from **any app** to summon Ori instantly as a floating overlay.
+</Tip>
+
+## Why Ori
 
 <CardGroup cols={2}>
-  <Card title="Install in 2 minutes" icon="rocket" href="/quickstart">
-    Download the app, add your API key, start chatting.
+  <Card title="Memory that persists" icon="brain" href="/features/memory">
+    Ori extracts facts, preferences, and patterns from every conversation — and remembers them forever. Day 1 you tell it you prefer TypeScript strict mode. Day 100 it still knows.
   </Card>
-  <Card title="Persistent memory" icon="brain" href="/guides/memory">
-    NIOM extracts facts and preferences from every conversation — and remembers them forever.
+  <Card title="Controls your computer" icon="display" href="/features/computer-use">
+    Ori sees your screen, clicks buttons, types text, scrolls pages, and presses keys. Automate anything visual — from filling forms to navigating apps.
   </Card>
-  <Card title="Background tasks" icon="bolt" href="/guides/background-tasks">
-    Dispatch autonomous tasks that plan, execute, and checkpoint — all while you keep chatting.
+  <Card title="Runs tasks on autopilot" icon="clock" href="/features/scheduled-tasks">
+    Set up recurring agent jobs: morning briefings, PR digests, competitor monitoring, news summaries. They run on schedule, even when Ori is in the background.
   </Card>
-  <Card title="Your keys, your data" icon="lock" href="/guides/privacy">
-    100% local. Zero telemetry. Bring your own API keys or run fully offline with Ollama.
+  <Card title="Your keys, your data" icon="lock" href="/reference/data-and-privacy">
+    100% local. Zero telemetry. API keys stored in your OS Keychain. Conversations, memories, and settings never leave your machine.
   </Card>
 </CardGroup>
 
-## What makes NIOM different
+## What you can do with Ori
 
-<CardGroup cols={2}>
-  <Card title="Persistent memory" icon="brain">
-    Every conversation teaches NIOM something. It extracts facts, preferences, and patterns — then uses them in future conversations. "I prefer TypeScript strict mode" is remembered once, applied forever.
-  </Card>
-  <Card title="Intelligent Skill Routing" icon="sitemap">
-    Every request flows through a Skill Tree — a graph of tools organized by domain. NIOM picks the right 4-8 tools for your task, not all 20+. Zero tokens used for routing.
-  </Card>
-  <Card title="Background tasks" icon="signal">
-    Dispatch multi-step tasks that run autonomously: plan → execute → checkpoint → deliver. Pause, steer, or cancel anytime. Tasks survive app restarts.
-  </Card>
-  <Card title="Project awareness" icon="folder-tree">
-    NIOM auto-detects your workspaces — tech stacks, conventions, project structure. It knows you're in a React project before you tell it.
-  </Card>
-  <Card title="Multi-provider" icon="arrows-split-up-and-left">
-    Anthropic, OpenAI, Google, or Ollama. Switch models anytime. Use Claude for reasoning, GPT for vision, Llama for privacy — in the same app.
-  </Card>
-  <Card title="Summoned in a keystroke" icon="keyboard">
-    Press `⌥ Space` from any app to summon NIOM. Ask a question, run a command, start a task — and dismiss. It lives in your system tray, always ready.
-  </Card>
-</CardGroup>
-
-## Who NIOM is for
-
-| You are... | NIOM helps you... |
-|:-----------|:-----------------|
-| A **developer** | Read/write files, run shell commands, search codebases, manage Git workflows — all through conversation |
-| A **researcher** | Search the web, crawl pages, synthesize findings, produce reports — as background tasks |
-| A **power user** | Automate repetitive workflows, manage projects, organize information across domains |
-| **Privacy-focused** | Run fully offline with Ollama — zero API calls, zero data leaves your machine |
-
-## How it works
-
-```
-You type → Skill Tree routes → Right tools selected → Agent executes → Memory updated → Results streamed
-```
-
-NIOM runs as an Electron desktop app with two processes:
-
-1. **Main process** — Agent engine, tool execution, memory, Skill Tree routing, task orchestration
-2. **Renderer** — React UI with chat, threads, settings, task panel, and a context graph
-
-Press `⌥ Space` to summon the overlay from anywhere. It works on macOS, Windows, and Linux.
+| Say this... | Ori does this... |
+|:------------|:-----------------|
+| "What files are in my project?" | Reads your filesystem and shows the structure |
+| "Search the web for the latest Rust frameworks" | Runs a web search and summarizes the results |
+| "Remember that I prefer dark mode everywhere" | Saves to persistent memory — recalled in future conversations |
+| "Take a screenshot and tell me what you see" | Captures your screen and describes the content |
+| "Every morning at 9am, summarize my GitHub PRs" | Creates a scheduled task that runs autonomously |
+| "Refactor this function to use async/await" | Reads your code, writes changes, explains the diff |
 
 ## Explore
 
-<CardGroup cols={2}>
-  <Card title="Memory system" icon="brain" href="/guides/memory">
-    How NIOM learns about you — and how to manage what it remembers.
+<CardGroup cols={3}>
+  <Card title="Installation" icon="rocket" href="/get-started/installation">
+    macOS, Windows, Linux, or from source.
   </Card>
-  <Card title="Configuration" icon="gear" href="/configuration">
-    API keys, model selection, theme, and Ollama setup.
+  <Card title="Your first conversation" icon="message" href="/get-started/first-conversation">
+    A hands-on walkthrough of what Ori can do.
   </Card>
-  <Card title="Built-in tools" icon="wrench" href="/guides/tools">
-    Files, shell, web search, page crawling — what ships out of the box.
+  <Card title="Coding with Ori" icon="code" href="/guides/coding-with-ori">
+    Read files, run commands, write code, manage Git.
   </Card>
-  <Card title="Architecture deep dive" icon="sitemap" href="/architecture/overview">
-    The full system design — context engine, Skill Tree, task system, and more.
+  <Card title="Research with Ori" icon="magnifying-glass" href="/guides/research-with-ori">
+    Search the web, crawl pages, synthesize reports.
+  </Card>
+  <Card title="Automating workflows" icon="repeat" href="/guides/automating-workflows">
+    Scheduled tasks, connectors, and recurring jobs.
+  </Card>
+  <Card title="All features" icon="sparkles" href="/get-started/what-can-ori-do">
+    The complete list of everything Ori ships with.
   </Card>
 </CardGroup>

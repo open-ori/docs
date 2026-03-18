@@ -1,0 +1,71 @@
+---
+title: "Automating Workflows"
+description: "Combine Ori's scheduled tasks, connectors, and computer use to automate recurring work."
+---
+
+Ori's real power emerges when you combine its features: scheduled tasks + connectors + computer use + memory = powerful workflow automation.
+
+## Pattern: Morning briefing
+
+```
+Every weekday at 8:30am:
+1. Check my Google Calendar for today's meetings
+2. Check GitHub for any PRs assigned to me
+3. Search for top AI news
+4. Give me a 1-minute briefing summary
+```
+
+This creates a single scheduled task that combines multiple connectors and web search.
+
+## Pattern: PR review assistant
+
+```
+Every 2 hours during work days, check if there are new PRs
+on the ori repo that I haven't reviewed. If there are any,
+summarize the changes and flag potential issues.
+```
+
+## Pattern: Content monitoring
+
+```
+Every day at noon, check these competitor websites for pricing changes:
+- competitor-a.com/pricing
+- competitor-b.com/pricing
+- competitor-c.com/pricing
+
+Compare with yesterday's prices and alert me if anything changed.
+```
+
+## Pattern: Email digest
+
+```
+Every evening at 6pm, search my Gmail for emails I haven't responded to
+today that seem important. Give me a prioritized list with suggested responses.
+```
+
+## Building complex automations
+
+You can build sophisticated automations by telling Ori your goal in plain language. It will figure out the right combination of tools:
+
+```
+I want a weekly report every Friday at 4pm that includes:
+- Lines of code changed this week (from git)
+- Number of PRs merged (from GitHub)
+- Any open bugs labeled "critical" (from GitHub issues)
+- Team velocity compared to last week
+Format it as a clean markdown report.
+```
+
+## Tips
+
+<Tip>
+  **Start simple, then iterate.** Create a basic scheduled task first. Once it's working, refine the prompt to add more detail or combine more data sources.
+</Tip>
+
+<Tip>
+  **Use memory to your advantage.** Once you tell Ori your team members, project names, and preferences, scheduled tasks automatically use that context.
+</Tip>
+
+<Tip>
+  **Combine with computer use.** "Every morning, open Jira in my browser and screenshot my sprint board" — Ori can automate visual workflows too.
+</Tip>

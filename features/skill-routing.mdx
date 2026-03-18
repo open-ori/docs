@@ -1,0 +1,57 @@
+---
+title: "Skill Routing"
+description: "How Ori automatically picks the right tools for every request — without wasting tokens."
+---
+
+Every request you send to Ori flows through a **Skill Graph** — a semantic map of all available tools, organized by domain. Ori picks the best 4-8 tools for your request automatically. You never need to specify which tool to use.
+
+## How it works
+
+```
+Your message → Skill Graph scores tools → Top tools selected → Agent executes with those tools
+```
+
+1. **Your message** is embedded into a vector
+2. **Each tool** has pre-computed exemplar embeddings (examples of queries it's good for)
+3. Ori scores every tool by **semantic similarity** to your query
+4. The top-scoring tools are selected and provided to the model
+5. The model uses them naturally in its response
+
+This happens in <1ms with zero LLM calls — it's pure embedding math.
+
+## Why this matters
+
+Without skill routing, AI agents have two bad options:
+
+| Approach | Problem |
+|:---------|:--------|
+| Give the model **all tools** | Wastes tokens, model gets confused by irrelevant tools |
+| Make the user **pick tools** | Bad UX, requires knowledge of tool inventory |
+
+Ori's Skill Graph gives the model only the tools it needs — keeping responses fast, accurate, and token-efficient.
+
+## The Skill Graph
+
+Tools are organized into **SkillPacks** (domains):
+
+| Domain | Tools | Activated when you... |
+|:-------|:------|:---------------------|
+| **Filesystem** | read, write, listDirectory | Ask about files, code, projects |
+| **Shell** | runCommand | Need to execute terminal commands |
+| **Web** | webSearch, crawl | Ask about current events, research |
+| **Computer** | screenshot, click, type, scroll, pressKey, mouseMove, getActiveWindow | Need visual interaction |
+| **System** | systemInfo | Ask about your machine |
+| **Connectors** | GitHub, Gmail, Calendar, Slack, Notion tools | Ask about external services |
+
+### Dynamic packs
+
+When you connect services via [Connectors](/features/connectors), their tools are automatically added to the Skill Graph. MCP tools get the same intelligent routing as built-in tools.
+
+## Guaranteed domains
+
+Some domains are **always available** regardless of query relevance:
+
+- **OS tools** (filesystem, shell) — always included since most tasks touch files
+- **Web tools** — always included for research and information gathering
+
+This ensures Ori never loses access to fundamental capabilities.

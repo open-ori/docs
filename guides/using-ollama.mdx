@@ -1,0 +1,74 @@
+---
+title: "Using Ollama"
+description: "Run Ori fully offline with local models via Ollama — zero API calls, zero cost, maximum privacy."
+---
+
+Ori supports [Ollama](https://ollama.com) for fully local, offline AI. No API key, no internet connection, no cost — everything runs on your hardware.
+
+## Setup
+
+<Steps>
+<Step title="Install Ollama">
+  ```bash
+  # macOS / Linux
+  curl -fsSL https://ollama.ai/install.sh | sh
+
+  # Windows — download from ollama.com
+  ```
+</Step>
+<Step title="Pull a model">
+  ```bash
+  ollama pull llama3.1
+  ```
+
+  Other good options: `mistral`, `codellama`, `phi3`, `gemma2`
+</Step>
+<Step title="Use in Ori">
+  Ori **auto-detects** Ollama at `localhost:11434`. No configuration needed — just switch to an Ollama model in the model selector.
+</Step>
+</Steps>
+
+## Recommended models
+
+| Model | Size | Best for |
+|:------|:-----|:---------|
+| `llama3.1:8b` | 4.7 GB | General use, good balance |
+| `llama3.1:70b` | 40 GB | Best quality (needs 48GB+ RAM) |
+| `codellama:13b` | 7.4 GB | Code generation and analysis |
+| `mistral:7b` | 4.1 GB | Fast, good for simple tasks |
+| `phi3:medium` | 7.9 GB | Strong reasoning for its size |
+
+## Custom Ollama URL
+
+If Ollama runs on a different machine or port, configure it in Settings or in `~/.ori/config.json`:
+
+```json
+{
+  "ollamaUrl": "http://192.168.1.100:11434"
+}
+```
+
+## Hardware requirements
+
+| Setup | RAM | GPU VRAM | Experience |
+|:------|:----|:---------|:-----------|
+| Minimum (7B model) | 8 GB | 6 GB | Usable, slower responses |
+| Recommended (13B model) | 16 GB | 8 GB | Good quality and speed |
+| Ideal (70B model) | 64 GB | 24 GB+ | Near-cloud quality |
+
+<Note>
+  Ollama models run on your CPU/GPU. Response speed depends on your hardware. For the fastest experience, use a cloud provider (Anthropic, OpenAI, Google) — for maximum privacy, use Ollama.
+</Note>
+
+## Limitations
+
+Local models are powerful but have some limitations compared to cloud models:
+
+- **Smaller context windows** — typically 4K-8K tokens vs 100K+ for Claude
+- **Lower reasoning quality** — for complex multi-step tasks, cloud models perform better
+- **No vision** — most local models can't analyze screenshots (computer use works but visual understanding is limited)
+- **Slower** — response time depends on your hardware
+
+<Tip>
+  **Best of both worlds:** Use Ollama for private, everyday tasks and switch to Anthropic/OpenAI for complex reasoning. Ori lets you switch models per-conversation.
+</Tip>

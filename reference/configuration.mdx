@@ -1,0 +1,60 @@
+---
+title: "Configuration"
+description: "All Ori settings — providers, models, Ollama, theme, and file locations."
+---
+
+Ori is configured through the **Settings view** (⌘ ,) in the app. You can also edit `~/.ori/config.json` directly.
+
+## Config file
+
+```json
+{
+  "providers": [
+    { "id": "anthropic", "name": "Anthropic", "enabled": true },
+    { "id": "openai", "name": "OpenAI", "enabled": false },
+    { "id": "google", "name": "Google", "enabled": false },
+    { "id": "ollama", "name": "Ollama (Local)", "enabled": false, "baseUrl": "http://localhost:11434" }
+  ],
+  "defaultModel": "anthropic:claude-sonnet-4-20250514",
+  "ollamaUrl": "http://localhost:11434",
+  "theme": "dark",
+  "onboardingComplete": true
+}
+```
+
+## Settings reference
+
+| Setting | Description | Default |
+|:--------|:-----------|:--------|
+| `providers` | Configured AI providers and their enabled state | All disabled |
+| `defaultModel` | Model used for new conversations | `anthropic:claude-sonnet-4-20250514` |
+| `ollamaUrl` | Custom Ollama server URL | `http://localhost:11434` |
+| `theme` | `"dark"` or `"light"` | `"dark"` |
+| `onboardingComplete` | Whether the onboarding wizard has been completed | `false` |
+
+## File locations
+
+| Path | Purpose |
+|:-----|:--------|
+| `~/.ori/config.json` | Main settings |
+| `~/.ori/threads/` | Conversation history (JSON per thread) |
+| `~/.ori/context/user/` | Persistent memory — your facts and preferences |
+| `~/.ori/context/projects/` | Auto-detected workspace analysis |
+| `~/.ori/schedules/` | Scheduled task definitions |
+| `~/.ori/drafts/` | Unsent message drafts |
+| `~/.ori/logs/` | Tool execution audit trail |
+| `~/.ori/skill-graph.json` | Learned tool usage patterns |
+
+## API keys
+
+API keys are stored in your OS credential manager — **not** in `config.json` or any file:
+
+- **macOS:** Keychain Access (service: "Ori")
+- **Windows:** Windows Credential Manager (target: "Ori/provider")
+- **Linux:** Secret Service / GNOME Keyring (service: "Ori")
+
+Manage keys through Settings or your OS credential manager app.
+
+<Note>
+  All data is portable. Copy `~/.ori/` to a new machine and everything transfers. API keys will need to be re-entered since they're stored in the OS credential manager.
+</Note>

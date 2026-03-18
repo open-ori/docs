@@ -1,0 +1,75 @@
+---
+title: "MCP Server"
+description: "Ori exposes its intelligence as an MCP server — connect from Cursor, VS Code, or any MCP-compatible tool."
+---
+
+Ori runs a local **MCP (Model Context Protocol) server** on `localhost:4141`. This lets other tools use Ori's capabilities — memory, tools, and intelligence.
+
+## What this enables
+
+| Tool | How it uses Ori |
+|:-----|:---------------|
+| **Cursor** | Ask Ori questions directly from your editor |
+| **VS Code** | Use Ori as an AI backend with memory |
+| **CLI scripts** | Call Ori from shell scripts and automation |
+| **Custom tools** | Any MCP-compatible client can connect |
+
+## Exposed tools
+
+The MCP server exposes 7 tools:
+
+| Tool | Description |
+|:-----|:-----------|
+| `ask_ori` | Send a natural language query to Ori |
+| `read` | Read files or directories |
+| `write` | Create or modify files |
+| `run` | Execute shell commands |
+| `search` | Search the web |
+| `crawl` | Extract content from URLs |
+| `system` | Get system information |
+
+## Connecting from Cursor
+
+Add to your Cursor MCP config:
+
+```json
+{
+  "mcpServers": {
+    "ori": {
+      "url": "http://127.0.0.1:4141/mcp"
+    }
+  }
+}
+```
+
+## Connecting from VS Code
+
+Add to your VS Code settings:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "ori": {
+        "url": "http://127.0.0.1:4141/mcp"
+      }
+    }
+  }
+}
+```
+
+## Connecting via CLI
+
+```bash
+# Health check
+curl http://127.0.0.1:4141/
+
+# MCP endpoint (POST)
+curl -X POST http://127.0.0.1:4141/mcp \
+  -H "Content-Type: application/json" \
+  -d '{"method": "tools/call", "params": {"name": "ask_ori", "arguments": {"query": "What time zone am I in?"}}}'
+```
+
+<Note>
+  The MCP server only accepts connections from `localhost`. It's not exposed to the network — only tools running on your machine can connect.
+</Note>

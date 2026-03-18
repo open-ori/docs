@@ -1,0 +1,45 @@
+---
+title: "Project Awareness"
+description: "Ori auto-detects your workspaces — tech stacks, conventions, and project structure."
+---
+
+Ori automatically scans your workspace directories and builds a rich understanding of your projects. It knows you're in a "React + TypeScript + Vite project" before you tell it.
+
+## What Ori detects
+
+| Signal | How it's detected |
+|:-------|:-----------------|
+| **Languages** | File extensions (.ts, .py, .rs, .go) |
+| **Frameworks** | Config files (next.config.js, vite.config.ts, Cargo.toml) |
+| **Package managers** | package.json, requirements.txt, go.mod, Cargo.lock |
+| **Build tools** | tsconfig.json, webpack.config, Makefile |
+| **Structure** | Directory layout, monorepo detection |
+
+## How it helps
+
+When project context is active, Ori tailors its responses:
+
+- Uses the right language and framework conventions
+- Suggests project-specific patterns
+- Knows relative file paths
+- Understands your dependency versions
+
+**Without project awareness:**
+> "Help me add a route" → Generic Express.js example
+
+**With project awareness:**
+> "Help me add a route" → Next.js App Router example using your project's conventions, file structure, and TypeScript config
+
+## Workspace scanning
+
+Ori scans common project directories on your machine:
+
+- `~/projects/`, `~/code/`, `~/dev/`, `~/repos/`
+- `~/Documents/`, `~/Desktop/` (for one-off projects)
+- Any directory you've opened in your editor
+
+Results are cached in `~/.ori/context/projects/` and refreshed periodically.
+
+<Note>
+  Project scanning is read-only. Ori examines config files and directory structure — it never modifies your projects during scanning.
+</Note>

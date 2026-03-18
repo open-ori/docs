@@ -1,0 +1,95 @@
+---
+title: "Data & Privacy"
+description: "How Ori stores your data, protects your API keys, and ensures your privacy."
+---
+
+Ori is **100% local**. All data lives on your machine. Nothing is sent to any server — except the AI model API calls you explicitly make.
+
+## Where data is stored
+
+Everything lives in `~/.ori/`:
+
+```
+~/.ori/
+├── config.json              # Settings (providers, model, theme)
+├── threads/                 # Conversation history
+├── context/                 # Memory system
+│   ├── user/               # Your facts, preferences, identity
+│   └── projects/           # Auto-detected workspace data
+├── schedules/              # Scheduled task definitions
+├── drafts/                 # Unsent message drafts
+├── logs/                   # Tool execution audit trail
+└── skill-graph.json        # Learned tool usage patterns
+```
+
+## API key storage
+
+API keys are stored in your operating system's **native credential manager** — not in the filesystem:
+
+| Platform | Credential Store |
+|:---------|:----------------|
+| macOS | Keychain Access (viewable in Keychain Access.app) |
+| Windows | Windows Credential Manager (viewable in Control Panel) |
+| Linux | Secret Service / GNOME Keyring / KDE Wallet |
+
+Keys:
+- ✅ Never touch the filesystem in plaintext
+- ✅ Survive `~/.ori/` deletion and app reinstalls
+- ✅ Are manageable through your OS's built-in credential tools
+- ✅ Are encrypted by the OS at rest
+
+## What leaves your machine
+
+| Data | Where it goes | When |
+|:-----|:-------------|:-----|
+| **Your messages** | Your chosen AI provider (Anthropic, OpenAI, Google) | When you send a message |
+| **Tool results** | Your chosen AI provider | When Ori uses tools in a conversation |
+| **Screenshots** | Your chosen AI provider | When using computer use |
+| **Web searches** | DuckDuckGo | When Ori searches the web |
+| **Nothing** | Nowhere | When using Ollama (fully offline) |
+
+<Note>
+  Ori has **zero telemetry**. No analytics, no crash reporting, no usage tracking. We don't know you're using Ori unless you tell us.
+</Note>
+
+## Using Ollama for full privacy
+
+For maximum privacy, use [Ollama](/guides/using-ollama) as your AI provider:
+
+- All AI processing runs on your hardware
+- Zero API calls — no internet connection needed
+- Screenshots analyzed locally
+- Complete air-gapped operation
+
+## Data portability
+
+Your `~/.ori/` directory is fully portable:
+
+```bash
+# Back up everything
+cp -r ~/.ori/ ~/ori-backup/
+
+# Move to a new machine
+scp -r ~/.ori/ newmachine:~/
+```
+
+Conversations, memories, settings, and learned patterns all transfer.
+
+## Deleting your data
+
+```bash
+# Delete everything
+rm -rf ~/.ori/
+
+# Delete only memories (keep conversations and settings)
+rm -rf ~/.ori/context/
+
+# Delete only conversations
+rm -rf ~/.ori/threads/
+```
+
+API keys stored in the OS credential manager need to be removed separately via your OS's credential manager (Keychain Access on macOS, etc.).
+
+## Open source
+
+Ori's source code is public at [github.com/open-ori/ori](https://github.com/open-ori/ori). You can inspect every line of code, verify the privacy claims, and build from source.

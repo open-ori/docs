@@ -1,0 +1,64 @@
+---
+title: "Computer Use"
+description: "Ori can see your screen, click, type, scroll, and press keys — automating anything visual on your desktop."
+---
+
+Ori has a full suite of computer control tools. It can see your screen, interact with any application, and automate visual workflows — like a human sitting at your desk.
+
+## What Ori can do
+
+| Action | Example | How it works |
+|:-------|:--------|:-------------|
+| **Screenshot** | "What's on my screen?" | Captures your display and describes the content |
+| **Click** | "Click the Submit button" | Clicks at specific screen coordinates |
+| **Type** | "Type my email address into the form" | Types text into the focused input field |
+| **Scroll** | "Scroll down on this page" | Scrolls the active window up or down |
+| **Press keys** | "Press ⌘C to copy" | Sends keyboard shortcuts with modifiers |
+| **Move mouse** | "Hover over that menu item" | Moves the cursor to trigger tooltips or menus |
+| **Get active window** | "What app am I using?" | Returns the app name, window title, and position |
+
+## Example workflow
+
+Here's a real example of Ori automating a multi-step visual task:
+
+```
+You: "Go to GitHub and star the open-ori/ori repo"
+
+Ori:
+1. Takes a screenshot to see the current state
+2. Opens the browser (presses ⌘Space, types "github.com/open-ori/ori")
+3. Takes another screenshot to verify the page loaded
+4. Finds the Star button and clicks it
+5. Confirms the action with a final screenshot
+```
+
+Each step is visible in the chat — you can see exactly what Ori sees and does.
+
+## Screen context
+
+Ori automatically detects what you're working with:
+
+- **Active browser tab** — URL detection across 9 browsers (Chrome, Arc, Safari, Firefox, Edge, Brave, Opera, Vivaldi, Chromium)
+- **Active editor file** — File path detection across 7 editors (VS Code, Cursor, Zed, Sublime, Xcode, IntelliJ, Vim/Neovim)
+
+This context is injected into conversations so Ori knows what you're looking at before you tell it.
+
+## When to use computer use
+
+Computer use is powerful for tasks that involve:
+
+- **Filling forms** — "Fill in the registration form with my info"
+- **Navigating apps** — "Open Slack and check the #engineering channel"
+- **Visual verification** — "Take a screenshot and check if the deploy succeeded"
+- **UI testing** — "Click through the onboarding flow and note any issues"
+- **Data entry** — "Copy these values from the spreadsheet into the form"
+
+<Tip>
+  Computer use works best when you describe the *goal*, not the individual steps. Say "star the repo on GitHub" rather than "click at coordinates 500, 300".
+</Tip>
+
+## Privacy note
+
+Screenshots are processed by your chosen AI model (Anthropic, OpenAI, etc.) for visual understanding. They are sent as part of the conversation and are subject to the provider's privacy policy.
+
+If privacy is a concern, use [Ollama](/guides/using-ollama) with a multimodal local model — screenshots never leave your machine.

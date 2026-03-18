@@ -1,0 +1,70 @@
+---
+title: "Scheduled Tasks"
+description: "Set up recurring agent jobs — morning briefings, PR digests, monitoring, and more — that run on autopilot."
+---
+
+Scheduled tasks let you set up recurring agent jobs that run automatically. Think of them as cron jobs powered by AI.
+
+## How it works
+
+1. Describe what you want ("Summarize my GitHub PRs every morning")
+2. Set the schedule (daily, hourly, custom cron)
+3. Ori runs the task on schedule — even when minimized to the tray
+4. Results appear on your Home screen
+
+## Creating a task
+
+You can create scheduled tasks in two ways:
+
+### From conversation
+Just tell Ori what you want:
+```
+Every weekday at 9am, search Hacker News for AI developments and give me a 5-bullet summary
+```
+
+Ori will create the schedule for you.
+
+### From the Home screen
+The **Scheduled Tasks** section on your Home screen lets you:
+- Create new schedules with a form
+- Set the prompt, frequency, and timing
+- Enable/disable individual schedules
+- View past results
+
+## Example schedules
+
+| Schedule | What it does |
+|:---------|:-------------|
+| "Every morning at 8am, tell me about the weather and my calendar" | Daily briefing combining web search and calendar data |
+| "Every 2 hours, check if example.com is responding" | Uptime monitoring with alerts |
+| "Every Friday at 5pm, summarize this week's Git commits" | Weekly development digest |
+| "Every day at 9am, search for news about my competitors" | Competitive intelligence on autopilot |
+
+## Schedule options
+
+| Field | Description | Examples |
+|:------|:-----------|:---------|
+| **Prompt** | What Ori should do each run | "Summarize top HN stories" |
+| **Frequency** | How often to run | Every hour, daily, weekly, custom |
+| **Time** | When to run (for daily/weekly) | 9:00 AM, 5:00 PM |
+| **Days** | Which days (for weekly) | Mon-Fri, weekends only |
+
+## Viewing results
+
+Scheduled task results appear as briefing cards on your **Home screen**. Each card shows:
+- The task name and schedule
+- When it last ran
+- The AI-generated result
+- Option to run it manually
+
+<Tip>
+  Scheduled tasks use the same tools as regular conversations — web search, file reading, connectors, and more. Anything you can ask Ori in a chat, you can schedule.
+</Tip>
+
+## Managing schedules
+
+Open your **Home screen** to see all active schedules. From there you can:
+- **Pause/resume** — Toggle schedules on and off
+- **Edit** — Change the prompt, timing, or frequency
+- **Delete** — Remove schedules you no longer need
+- **Run now** — Trigger a schedule immediately

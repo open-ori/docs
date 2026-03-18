@@ -1,0 +1,140 @@
+---
+title: "What Can Ori Do?"
+description: "The complete list of everything Ori ships with — features, tools, integrations, and capabilities."
+---
+
+Ori is built to be a complete AI companion on your desktop. Here's everything it can do out of the box.
+
+## Core capabilities
+
+### Persistent memory
+
+Ori remembers what you tell it — across every conversation, forever.
+
+- Automatically extracts facts, preferences, and patterns
+- Organized into a tiered system: always-loaded summaries, detailed context on demand
+- Toggle **Recall** on/off to control when memories are injected
+- View, search, and delete memories in Settings
+
+→ [Learn more about memory](/features/memory)
+
+### Computer use
+
+Ori can see and control your screen — like a human sitting at your desk.
+
+| Action | What Ori does |
+|:-------|:-------------|
+| **Screenshot** | Captures your entire screen and analyzes the content |
+| **Click** | Clicks at specific coordinates on your screen |
+| **Type** | Types text into any focused input field |
+| **Scroll** | Scrolls up/down in the active window |
+| **Press keys** | Presses keyboard shortcuts (⌘C, ⌘V, Enter, etc.) |
+| **Move mouse** | Hovers over elements for tooltips or menus |
+| **Get active window** | Identifies the current app, window title, and position |
+
+→ [Learn more about computer use](/features/computer-use)
+
+### Scheduled tasks
+
+Set up recurring agent jobs that run on autopilot.
+
+- **Morning briefings** — "Summarize my GitHub PRs every morning at 9am"
+- **News digests** — "Every evening, give me the top AI news"
+- **Monitoring** — "Check my website every hour and alert me if it's down"
+- Runs even when Ori is in the background
+- Results appear on your Home screen
+
+→ [Learn more about scheduled tasks](/features/scheduled-tasks)
+
+### Connectors
+
+Connect Ori to your digital life via MCP (Model Context Protocol):
+
+| Connector | What it enables |
+|:----------|:---------------|
+| **GitHub** | Browse repos, read issues, review PRs, search code |
+| **Gmail** | Read, search, and draft emails |
+| **Google Calendar** | View schedule, create events, check availability |
+| **Slack** | Read channels, send messages, search conversations |
+| **Notion** | Read pages, query databases, search workspace content |
+
+→ [Learn more about connectors](/features/connectors)
+
+### Skill routing
+
+Every request flows through a **Skill Graph** that picks the right tools automatically. You never need to specify which tool to use.
+
+- 22+ built-in tools organized into semantic domains
+- Zero-token routing — no LLM calls needed for tool selection
+- Adapts based on your usage patterns
+
+→ [Learn more about skill routing](/features/skill-routing)
+
+## Built-in tools
+
+### File system
+- **read** — Read file contents or list directories
+- **write** — Create or modify files with diff preview
+- **listDirectory** — Browse directory trees
+
+### Shell
+- **runCommand** — Execute terminal commands (always requires approval)
+
+### Web
+- **webSearch** — Search the web via DuckDuckGo
+- **crawl** — Extract readable content from any URL
+
+### Computer
+- **screenshot** — Capture your screen
+- **click** — Click at screen coordinates
+- **type** — Type text into focused fields
+- **scroll** — Scroll the active window
+- **pressKey** — Press keyboard shortcuts
+- **mouseMove** — Move the cursor
+- **getActiveWindow** — Identify the current app
+
+### System
+- **systemInfo** — OS, CPU, memory, and environment info
+
+→ [Full tool reference](/reference/tools)
+
+## AI providers
+
+Use any model from any provider — or run fully offline:
+
+| Provider | Popular models | Best for |
+|:---------|:--------------|:---------|
+| **Anthropic** | Claude 4, Sonnet | Complex reasoning, coding |
+| **OpenAI** | GPT-4.5, GPT-4o | General use, vision |
+| **Google** | Gemini 2.5 Pro/Flash | Large context, multimodal |
+| **Ollama** | Llama 3, Mistral, Phi | Full privacy, offline |
+
+Switch models anytime from the model selector. No restart needed.
+
+→ [Provider setup guide](/reference/providers-and-models)
+
+## Platform features
+
+### Spotlight (`⌥ Space`)
+Summon Ori from **any application** as a floating overlay. Ask a question, get an answer, dismiss — without switching windows.
+
+### System tray
+Ori lives in your menu bar / system tray. Always running, always ready.
+
+### Auto-updates
+Updates download silently in the background. When ready, a non-intrusive prompt lets you restart to update.
+
+### MCP server
+Ori exposes its intelligence as an MCP server on `localhost:4141`. Connect from Cursor, VS Code, or any MCP-compatible tool.
+
+→ [MCP server reference](/reference/mcp-server)
+
+## Privacy
+
+- **100% local** — all data stored in `~/.ori/`
+- **Zero telemetry** — no analytics, no tracking, no phone-home
+- **OS Keychain** — API keys stored in macOS Keychain, Windows Credential Manager, or Linux Secret Service
+- **Your models** — you choose the provider. Use Ollama for fully offline operation
+- **Open source** — inspect every line of code
+
+→ [Privacy details](/reference/data-and-privacy)

@@ -1,0 +1,80 @@
+---
+title: "Built-in Tools"
+description: "Every tool Ori ships with — file operations, shell commands, web search, computer control, and more."
+---
+
+Ori ships with 22+ built-in tools. The [Skill Graph](/features/skill-routing) automatically picks the right ones — you never need to specify which tool to use.
+
+## File system
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **read** | Read file contents or list directories | Auto |
+| **write** | Create or modify files (shows diff preview) | Required |
+| **listDirectory** | Browse directory trees with sizes and types | Auto |
+
+## Shell
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **runCommand** | Execute terminal commands | Always required |
+
+<Note>
+  Shell commands always require approval — even in trusted mode. Ori shows you the exact command before running it.
+</Note>
+
+## Web
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **webSearch** | Search the web via DuckDuckGo | Auto |
+| **crawl** | Extract readable content from a URL | Auto |
+
+## Computer
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **screenshot** | Capture your screen | Auto |
+| **click** | Click at screen coordinates | Auto |
+| **type** | Type text into focused fields | Auto |
+| **scroll** | Scroll the active window | Auto |
+| **pressKey** | Press keyboard shortcuts with modifiers | Auto |
+| **mouseMove** | Move the cursor to coordinates | Auto |
+| **getActiveWindow** | Get app name, window title, and bounds | Auto |
+
+## System
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **systemInfo** | OS, CPU, memory, and environment details | Auto |
+
+## Tool approval
+
+Ori uses a **trust-based approval system**:
+
+1. A **tool approval card** appears showing what the tool wants to do
+2. You click **Approve** or **Reject**
+3. If approved, the tool runs and Ori continues
+
+### Session trust
+
+When you approve a tool for a path, Ori remembers for the session:
+
+- Trust is **path-scoped** — approving one directory doesn't trust all directories
+- Trust has a **30-minute TTL** — automatically expires
+- `runCommand` is **never auto-trusted** — every command needs explicit approval
+
+## Self-correction
+
+Ori doesn't just call tools — it interprets results and self-corrects:
+
+1. If `read("/src/index.ts")` returns "file not found"
+2. Ori tries `read("/src/")` to list the directory
+3. Discovers the file is `index.tsx` (not `.ts`)
+4. Reads the correct file automatically
+
+Up to 3 self-correction attempts per tool call.
+
+## Extending with MCP
+
+Ori supports the **Model Context Protocol (MCP)** for external tools. When you connect a service via [Connectors](/features/connectors), its tools are automatically added to the Skill Graph.

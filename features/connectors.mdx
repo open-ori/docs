@@ -1,0 +1,71 @@
+---
+title: "Connectors"
+description: "Connect Ori to GitHub, Gmail, Google Calendar, Slack, and Notion via MCP."
+---
+
+Connectors let Ori access your external services — GitHub repos, email, calendar, Slack channels, and Notion pages. They use the **Model Context Protocol (MCP)**, an open standard for AI-tool integration.
+
+## Available connectors
+
+| Connector | What Ori can do | Setup |
+|:----------|:---------------|:------|
+| **GitHub** | Browse repos, read issues, review PRs, search code, view file contents | Personal access token |
+| **Gmail** | Read and search emails, draft replies | OAuth (Google account) |
+| **Google Calendar** | View schedule, create events, check availability | OAuth (Google account) |
+| **Slack** | Read channels, send messages, search conversations | Bot token |
+| **Notion** | Read pages, query databases, search workspace | Integration token |
+
+## Setting up a connector
+
+<Steps>
+<Step title="Open Settings">
+  Open Ori → click the gear icon (or press `⌘ ,`) → scroll to **Connectors**.
+</Step>
+<Step title="Click Set up">
+  Each connector has a **Set up** button. Click it and follow the authentication flow.
+</Step>
+<Step title="Start using it">
+  Once connected, just ask naturally:
+
+  ```
+  "Show me the open PRs on the ori repo"
+  "What's on my calendar tomorrow?"
+  "Search my Gmail for invoices from last month"
+  ```
+
+  Ori's Skill Graph automatically routes to the right connector.
+</Step>
+</Steps>
+
+## How connectors work
+
+Connectors are powered by **MCP (Model Context Protocol)** — the same standard used by Claude, Cursor, and other AI tools. When you enable a connector:
+
+1. Ori starts a local MCP server for that service
+2. The connector's tools are registered in the Skill Graph
+3. They get the same intelligent routing as built-in tools
+4. All communication happens locally — credentials never leave your machine
+
+## Using connectors in conversation
+
+You don't need to specify which connector to use. Just describe what you want:
+
+| You say... | Ori uses... |
+|:-----------|:-----------|
+| "What issues are assigned to me?" | GitHub connector |
+| "Draft a reply to the latest email from Sarah" | Gmail connector |
+| "Am I free tomorrow at 2pm?" | Google Calendar connector |
+| "What's happening in #engineering?" | Slack connector |
+| "Find the product roadmap doc" | Notion connector |
+
+## Using connectors in scheduled tasks
+
+Connectors are especially powerful combined with [scheduled tasks](/features/scheduled-tasks):
+
+```
+"Every morning at 9am, check my GitHub notifications and summarize any PRs that need my review"
+```
+
+```
+"Every Friday at 5pm, search Slack for mentions of 'deploy' or 'release' in #engineering this week"
+```

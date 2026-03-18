@@ -1,0 +1,111 @@
+---
+title: "Coding with Ori"
+description: "A step-by-step guide to using Ori for software development — reading code, writing files, running commands, and managing projects."
+---
+
+Ori is built for developers. It can read your codebase, write files, run terminal commands, search docs, and manage Git workflows — all through conversation.
+
+## Reading code
+
+Ask Ori to read any file or directory:
+
+```
+Read src/components/App.tsx
+```
+
+```
+Show me the structure of the src/ directory
+```
+
+```
+Find all files that import the useAuth hook
+```
+
+Ori uses the **read** and **listDirectory** tools to explore your filesystem. It understands relative paths when it knows your project context.
+
+## Writing code
+
+Ori can create new files or modify existing ones:
+
+```
+Create a new React component called UserProfile in src/components/
+```
+
+```
+Add error handling to the fetchData function in utils.ts
+```
+
+```
+Refactor the login form to use React Hook Form instead of uncontrolled inputs
+```
+
+When Ori writes a file, it shows you a **diff preview** before applying the change. You can approve, reject, or ask for modifications.
+
+## Running commands
+
+```
+Run npm test and tell me if anything fails
+```
+
+```
+What's the output of git log --oneline -5?
+```
+
+```
+Install the zod package as a dependency
+```
+
+Shell commands **always require your approval** — Ori shows you the exact command before running it. After a few approvals in the same project directory, Ori remembers your trust for the session.
+
+## Workflow examples
+
+### Debugging a test failure
+
+```
+Run the tests, find the failing one, read the relevant source code, and fix the bug
+```
+
+Ori will:
+1. Run `npm test` (with your approval)
+2. Parse the error output
+3. Read the failing test and the source code it tests
+4. Identify the bug
+5. Propose a fix with a diff preview
+
+### Creating a new feature
+
+```
+I need a REST API endpoint for user registration. Use Express, validate with Zod, hash passwords with bcrypt.
+```
+
+Ori will:
+1. Check your project structure to understand conventions
+2. Create the route handler file
+3. Create the validation schema
+4. Add the route to your router
+5. Explain what it did and why
+
+### Code review
+
+```
+Read the changes in the last 3 commits and give me a code review
+```
+
+Ori will:
+1. Run `git log --oneline -3` and `git diff HEAD~3`
+2. Read through the changes
+3. Provide feedback on code quality, potential bugs, and suggestions
+
+## Tips for developers
+
+<Tip>
+  **Be specific about paths.** "Read the auth middleware" is good, but "Read src/middleware/auth.ts" is better — especially in large projects.
+</Tip>
+
+<Tip>
+  **Tell Ori about your project once.** Say "I'm working on a Next.js 15 app with Drizzle ORM and Tailwind v4" — Ori remembers this and tailors all future code suggestions.
+</Tip>
+
+<Tip>
+  **Use Recall mode.** With Recall ON, Ori knows your coding preferences (indentation, naming conventions, framework choices) from past conversations.
+</Tip>

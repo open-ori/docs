@@ -1,0 +1,63 @@
+---
+title: "Providers & Models"
+description: "Set up Anthropic, OpenAI, Google, or Ollama — and choose the best model for your needs."
+---
+
+Ori supports four model providers. You can configure multiple and switch between them anytime.
+
+## Supported providers
+
+| Provider | Popular models | Strengths |
+|:---------|:--------------|:----------|
+| **Anthropic** | Claude 4, Claude Sonnet | Best reasoning, coding, tool use |
+| **OpenAI** | GPT-4.5, GPT-4o | Strong general purpose, vision |
+| **Google** | Gemini 2.5 Pro, Flash | Huge context windows, multimodal |
+| **Ollama** | Llama 3, Mistral, Phi | Full privacy, no API key, free |
+
+## Adding a provider
+
+<Tabs>
+  <Tab title="In the app">
+    Open **Settings** (⌘ ,) → scroll to **Providers** → enter your API key → press Enter or click Save.
+
+    The provider is immediately enabled.
+  </Tab>
+  <Tab title="During onboarding">
+    The onboarding wizard has an API key entry step. Add one or more keys inline.
+  </Tab>
+</Tabs>
+
+## Recommended models
+
+| Use case | Model | Why |
+|:---------|:------|:----|
+| **Daily driver** | `anthropic:claude-sonnet-4-20250514` | Best balance of speed + capability |
+| **Complex reasoning** | `anthropic:claude-4-20250514` | Most capable, deeper thinking |
+| **Fast responses** | `openai:gpt-4o` | Quick, solid for simple tasks |
+| **Large files** | `google:gemini-2.5-pro` | 1M token context window |
+| **Full privacy** | `ollama:llama3.1` | Everything runs locally |
+
+## Switching models
+
+Use the **model selector** at the bottom of the chat input. You can change models mid-conversation — no restart needed.
+
+## API key security
+
+API keys are stored in your operating system's native credential manager:
+
+| Platform | Storage |
+|:---------|:--------|
+| macOS | Keychain Access |
+| Windows | Windows Credential Manager |
+| Linux | Secret Service (GNOME Keyring / KDE Wallet) |
+
+Keys never touch the filesystem in plaintext. They survive app reinstalls and `~/.ori/` deletion.
+
+## Getting API keys
+
+| Provider | Where to get a key |
+|:---------|:------------------|
+| Anthropic | [console.anthropic.com](https://console.anthropic.com) → API Keys |
+| OpenAI | [platform.openai.com](https://platform.openai.com) → API Keys |
+| Google | [aistudio.google.com](https://aistudio.google.com) → Get API Key |
+| Ollama | No key needed — [install Ollama](https://ollama.com) and pull a model |

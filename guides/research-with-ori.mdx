@@ -1,0 +1,78 @@
+---
+title: "Research with Ori"
+description: "Use Ori to search the web, crawl pages, synthesize findings, and produce reports."
+---
+
+Ori is a powerful research assistant. It can search the web, extract content from any URL, synthesize information, and produce structured reports — all in one conversation.
+
+## Web search
+
+```
+Search the web for the best Rust web frameworks in 2026
+```
+
+Ori runs a DuckDuckGo search, reads through the results, and gives you a synthesized summary with sources.
+
+## Page crawling
+
+```
+Read this page and summarize it: https://blog.example.com/ai-trends-2026
+```
+
+Ori extracts the readable content from any URL — stripping ads, navigation, and boilerplate. Great for articles, documentation, and blog posts.
+
+## Multi-step research
+
+The real power comes when you chain these together:
+
+```
+Research the top 5 headless CMS options for a Next.js project.
+Compare their pricing, features, and developer experience.
+Give me a recommendation based on a small team with a tight budget.
+```
+
+Ori will:
+1. Search for headless CMS options
+2. Visit each one's website for pricing and features
+3. Cross-reference with developer reviews and community sentiment
+4. Produce a structured comparison with a final recommendation
+
+## Example: competitive analysis
+
+```
+Research three competitors to my product (Ori):
+- OpenClaw (openclaw.com)
+- Claude Desktop (from Anthropic)
+- ChatGPT Desktop (from OpenAI)
+
+Compare: pricing, features, privacy, memory capabilities, and platform support.
+Output as a markdown table.
+```
+
+## Combining research with scheduled tasks
+
+Set up automated research that runs on its own:
+
+```
+Every morning at 8am, search for news about AI agents and desktop AI apps, and summarize the top 3 stories
+```
+
+```
+Every Monday at 10am, check Product Hunt for new AI tools launched this week
+```
+
+→ See [Scheduled Tasks](/features/scheduled-tasks) for more
+
+## Tips for research
+
+<Tip>
+  **Be specific about what you want.** "Research React" is vague. "Compare React Server Components vs traditional SSR for a high-traffic e-commerce site" gives Ori a clear target.
+</Tip>
+
+<Tip>
+  **Ask for structure.** Request your findings as a table, bullet list, or pros/cons format. Ori will organize the information accordingly.
+</Tip>
+
+<Tip>
+  **Iterate.** After the initial research, follow up with "dig deeper into option #2" or "what are the drawbacks of that approach?"
+</Tip>

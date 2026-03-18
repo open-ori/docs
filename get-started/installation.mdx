@@ -1,0 +1,79 @@
+---
+title: "Installation"
+description: "Download and install Ori on macOS, Windows, or Linux — or build from source."
+---
+
+## Download
+
+Grab the latest release for your platform:
+
+<Tabs>
+  <Tab title="macOS">
+    Download the `.dmg` from [GitHub Releases](https://github.com/open-ori/ori/releases/latest).
+
+    Open the DMG and drag Ori to your Applications folder. Launch from Launchpad or Spotlight.
+
+    <Tip>Ori supports both Intel (x64) and Apple Silicon (arm64) Macs.</Tip>
+  </Tab>
+  <Tab title="Windows">
+    Download the `.exe` installer from [GitHub Releases](https://github.com/open-ori/ori/releases/latest).
+
+    Run the installer — Ori will appear in your system tray when ready.
+  </Tab>
+  <Tab title="Linux">
+    Download from [GitHub Releases](https://github.com/open-ori/ori/releases/latest):
+
+    ```bash
+    # Debian / Ubuntu
+    sudo dpkg -i ori_*.deb
+
+    # Fedora / RHEL
+    sudo rpm -i ori_*.rpm
+    ```
+  </Tab>
+  <Tab title="From Source">
+    ```bash
+    git clone https://github.com/open-ori/ori.git
+    cd ori
+    npm install
+    npm start
+    ```
+
+    **Requirements:** Node.js 22+, npm 10+
+  </Tab>
+</Tabs>
+
+## First launch
+
+When you open Ori for the first time, a **4-step onboarding wizard** guides you through setup:
+
+1. **Welcome** — Meet Ori and see what it can do
+2. **Connect a provider** — Add your API key (Anthropic, OpenAI, or Google)
+3. **Feature tour** — Quick overview of memory, computer use, scheduled tasks
+4. **Ready** — Essential keyboard shortcuts and starter prompts
+
+<Tip>
+  Don't have an API key? You can skip this step and use [Ollama](/guides/using-ollama) for fully offline, free AI — no account needed.
+</Tip>
+
+## After install
+
+Ori lives in your **system tray** (menu bar on macOS). It's always running in the background, ready when you need it.
+
+- Press **`⌥ Space`** from any app to summon Ori as a floating overlay
+- Click the tray icon to open the full window
+- Ori checks for updates automatically and prompts you when one is ready
+
+## System requirements
+
+| Platform | Minimum | Recommended |
+|:---------|:--------|:------------|
+| macOS | 12 Monterey+ | 14 Sonoma+ |
+| Windows | Windows 10 | Windows 11 |
+| Linux | Ubuntu 22.04+ | Ubuntu 24.04+ |
+| RAM | 4 GB | 8 GB+ |
+| Disk | 500 MB | 1 GB+ (with local models) |
+
+<Note>
+  If you plan to use Ollama for local models, you'll need at least 8 GB RAM and a GPU with 6 GB+ VRAM for good performance.
+</Note>
