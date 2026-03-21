@@ -1,9 +1,9 @@
 ---
 title: "Ori — AI that remembers you"
-description: "A local-first AI agent for your desktop. Persistent memory, computer use, scheduled tasks, and intelligent skill routing — with any model you choose."
+description: "A local-first AI agent for your desktop. Persistent memory, computer use, scheduled tasks, embedded terminal, live file preview, and intelligent skill routing — with any model you choose."
 ---
 
-Ori is a desktop AI agent that runs entirely on your machine. It remembers your preferences, understands your projects, controls your screen, runs tasks on autopilot, and picks the right tools for every request.
+Ori is a desktop AI agent that runs entirely on your machine. It remembers your preferences, understands your projects, controls your screen, runs tasks on autopilot, writes and previews files in real time, and picks the right tools for every request.
 
 It's not a chat wrapper. It's a personal AI that gets smarter every time you use it.
 
@@ -25,10 +25,6 @@ It's not a chat wrapper. It's a personal AI that gets smarter every time you use
 </Step>
 </Steps>
 
-<Tip>
-  Press `⌥ Space` from **any app** to summon Ori instantly as a floating overlay.
-</Tip>
-
 ## Why Ori
 
 <CardGroup cols={2}>
@@ -38,11 +34,20 @@ It's not a chat wrapper. It's a personal AI that gets smarter every time you use
   <Card title="Controls your computer" icon="display" href="/features/computer-use">
     Ori sees your screen, clicks buttons, types text, scrolls pages, and presses keys. Automate anything visual — from filling forms to navigating apps.
   </Card>
+  <Card title="Your keys, your data" icon="lock" href="/reference/data-and-privacy">
+    100% local. Zero telemetry. API keys stored in your OS Keychain. Conversations, memories, and settings never leave your machine.
+  </Card>
+  <Card title="Community skills" icon="sparkles" href="/features/skill-registry">
+    Browse and install skill packs from the community — email drafting, data analysis, git workflows. One click to install, instant routing.
+  </Card>
   <Card title="Runs tasks on autopilot" icon="clock" href="/features/scheduled-tasks">
     Set up recurring agent jobs: morning briefings, PR digests, competitor monitoring, news summaries. They run on schedule, even when Ori is in the background.
   </Card>
-  <Card title="Your keys, your data" icon="lock" href="/reference/data-and-privacy">
-    100% local. Zero telemetry. API keys stored in your OS Keychain. Conversations, memories, and settings never leave your machine.
+  <Card title="Embedded terminal" icon="terminal" href="/features/terminal">
+    A full terminal lives inside Ori — multiple tabs, live output during tool execution, and drag-to-resize. No context switching.
+  </Card>
+  <Card title="Live file preview" icon="eye" href="/features/artifacts">
+    Ori proposes file changes as reviewable artifacts. Preview HTML files live in a sandboxed iframe, render SVGs inline, and view rendered Markdown — all in-app.
   </Card>
 </CardGroup>
 
@@ -55,7 +60,9 @@ It's not a chat wrapper. It's a personal AI that gets smarter every time you use
 | "Remember that I prefer dark mode everywhere" | Saves to persistent memory — recalled in future conversations |
 | "Take a screenshot and tell me what you see" | Captures your screen and describes the content |
 | "Every morning at 9am, summarize my GitHub PRs" | Creates a scheduled task that runs autonomously |
-| "Refactor this function to use async/await" | Reads your code, writes changes, explains the diff |
+| "Refactor this function to use async/await" | Reads your code, writes changes, shows a diff preview |
+| "Create an HTML page with a demo" | Writes the file and shows a live sandboxed preview |
+| "Install the email drafting skill" | Downloads and activates the skill from the community registry |
 
 ## Explore
 

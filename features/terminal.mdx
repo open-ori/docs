@@ -1,0 +1,42 @@
+---
+title: "Embedded Terminal"
+description: "A full terminal lives inside Ori — multiple tabs, live output during tool execution, and seamless integration with the chat."
+---
+
+Ori includes a built-in terminal powered by xterm.js. It's not a toy — it's a real PTY session with your default shell, fully integrated into the workspace.
+
+## Opening the terminal
+
+Press **`` Ctrl+` ``** to toggle the terminal panel at the bottom of the workspace. You can also click the terminal icon in the activity bar.
+
+## Features
+
+| Feature | Description |
+|:--------|:------------|
+| **Multiple tabs** | Open several terminal sessions side by side |
+| **Resizable** | Drag the top edge to resize between 120px and 600px |
+| **Live tool output** | When Ori runs a command via the `run` tool, output streams live into a dedicated terminal card in the chat |
+| **Full PTY** | Your default shell (zsh, bash, etc.) with full color support, autocomplete, and history |
+| **Theme-aware** | Matches your dark/light theme automatically |
+
+## How it works with chat
+
+When Ori decides to run a terminal command (via the `run` tool), two things happen simultaneously:
+
+1. **In-chat card** — An `XTermCard` appears inline showing the command and its live output
+2. **Approval required** — Ori always asks before executing commands. You review and approve each one
+
+This means you can see exactly what Ori is running and its output in real time — no hidden operations.
+
+## Terminal vs. tool execution
+
+| Scenario | Where it runs |
+|:---------|:-------------|
+| You open a terminal tab and type commands | In the terminal panel — your session, your control |
+| Ori runs a command as part of a conversation | In the chat — shown as an XTermCard with live output |
+
+Both are real PTY sessions. The difference is who initiated the command.
+
+<Tip>
+  The terminal panel persists across view switches. Open it in a chat, switch to Home, come back — your session is still running.
+</Tip>

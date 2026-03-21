@@ -1,0 +1,67 @@
+---
+title: "Artifacts & File Preview"
+description: "Ori proposes file changes as reviewable artifacts with live preview — HTML in a sandboxed iframe, SVG inline, Markdown rendered, and full editing with Monaco."
+---
+
+When Ori writes or modifies files, it doesn't just dump code into the chat. It creates **artifacts** — structured file proposals that you can review, edit, and apply or skip.
+
+## Artifact cards
+
+Every file Ori creates or modifies appears as an inline **ArtifactPreviewCard** in the chat. Each card shows:
+
+- **File name and path** — where the file will be written
+- **Language badge** — auto-detected from the extension
+- **Code preview** — syntax-highlighted, collapsible, with line numbers
+- **Apply / Skip buttons** — you decide what gets written to disk
+- **Edit mode** — modify the code in a full Monaco editor before applying
+- **Diff mode** — for modifications, see a side-by-side diff of original vs proposed
+
+<Tip>
+  Applied and skipped states persist across sessions. Reopen an old thread and you'll see exactly which artifacts were applied.
+</Tip>
+
+## Live preview
+
+For supported file types, artifacts include a **live preview** mode:
+
+| File type | Preview behavior |
+|:----------|:----------------|
+| **HTML** | Renders in a sandboxed iframe with viewport switching (desktop, tablet, mobile) |
+| **CSS** | Rendered with a sample HTML shell |
+| **JavaScript** | Executed in a sandboxed iframe |
+| **SVG** | Rendered inline as a vector graphic |
+
+Click the **eye icon** on any HTML artifact to see it rendered live — interactive buttons, animations, and all.
+
+## File preview panel
+
+The right-side **preview panel** supports three modes for any file in your workspace:
+
+| Mode | Description |
+|:-----|:------------|
+| **View** | Source code display with syntax highlighting |
+| **Edit** | Full Monaco editor with Cmd+S save, dirty indicators, and theme matching |
+| **Visualize** | Live rendered preview for HTML, SVG, and Markdown files |
+
+HTML and SVG files **auto-enter Visualize mode** when opened — you immediately see the rendered result instead of raw code. Toggle between modes with the toolbar buttons.
+
+### Supported visualizations
+
+- **HTML / HTM** — Full sandboxed iframe with the same viewport controls as artifact preview
+- **SVG** — Renders the vector graphic inline at full resolution
+- **Markdown / MDX** — Renders formatted prose with headers, lists, code blocks, and links
+
+## Batch operations
+
+When Ori proposes multiple files in a single response, a **batch action bar** appears:
+
+- **Apply All** — writes every proposed file to disk in one click
+- **Dismiss All** — skips all pending artifacts
+
+## Security
+
+Live previews use a sandboxed `<iframe>` with strict restrictions:
+
+- ✅ `allow-scripts` — JavaScript can run for interactive demos
+- ❌ No form submissions, popups, navigation, or top-level access
+- ❌ No network access — content is loaded via `srcdoc`, not a URL

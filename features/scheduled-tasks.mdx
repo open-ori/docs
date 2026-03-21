@@ -8,9 +8,9 @@ Scheduled tasks let you set up recurring agent jobs that run automatically. Thin
 ## How it works
 
 1. Describe what you want ("Summarize my GitHub PRs every morning")
-2. Set the schedule (daily, hourly, custom cron)
-3. Ori runs the task on schedule — even when minimized to the tray
-4. Results appear on your Home screen
+2. Ori detects the schedule and creates the task — linked to the conversation thread
+3. The task runs on schedule — even when minimized to the tray
+4. Results appear in your briefing and the linked thread
 
 ## Creating a task
 
@@ -22,14 +22,10 @@ Just tell Ori what you want:
 Every weekday at 9am, search Hacker News for AI developments and give me a 5-bullet summary
 ```
 
-Ori will create the schedule for you.
+Ori detects the recurring intent, creates the schedule, and links it to the current thread.
 
-### From the Home screen
-The **Scheduled Tasks** section on your Home screen lets you:
-- Create new schedules with a form
-- Set the prompt, frequency, and timing
-- Enable/disable individual schedules
-- View past results
+### From the sidebar
+Click the **CalendarClock icon** in the activity bar (always visible) to open the Schedules panel. From there you can manually create and manage schedules.
 
 ## Example schedules
 
@@ -40,6 +36,38 @@ The **Scheduled Tasks** section on your Home screen lets you:
 | "Every Friday at 5pm, summarize this week's Git commits" | Weekly development digest |
 | "Every day at 9am, search for news about my competitors" | Competitive intelligence on autopilot |
 
+## Managing schedules
+
+### Sidebar panel
+The **Schedules panel** in the sidebar gives you full control:
+- **View all schedules** — see every active and paused schedule
+- **Toggle on/off** — pause and resume individual schedules
+- **Delete** — remove schedules you no longer need
+- **Click to preview** — opens details in the right panel for editing
+
+### Preview panel
+Click any schedule in the sidebar list to open its **detail view** in the right panel. From there you can:
+- Edit the prompt, frequency, or timing
+- See the linked thread (if created from a conversation)
+- Review the last run time and next scheduled run
+
+### Home view
+A compact **schedule summary** appears on the Home screen when you have active schedules. It shows:
+- Number of active schedules
+- Time until the next run
+- Click to navigate to the linked thread
+
+## Thread linking
+
+Schedules created from conversations are **linked to their thread**. This means:
+- Clicking a schedule in the sidebar opens the right-side preview
+- Clicking a schedule on the Home view navigates to the conversation that created it
+- Past run results appear in the linked thread's context
+
+<Tip>
+  Scheduled tasks use the same tools as regular conversations — web search, file reading, connectors, and more. Anything you can ask Ori in a chat, you can schedule.
+</Tip>
+
 ## Schedule options
 
 | Field | Description | Examples |
@@ -48,23 +76,3 @@ The **Scheduled Tasks** section on your Home screen lets you:
 | **Frequency** | How often to run | Every hour, daily, weekly, custom |
 | **Time** | When to run (for daily/weekly) | 9:00 AM, 5:00 PM |
 | **Days** | Which days (for weekly) | Mon-Fri, weekends only |
-
-## Viewing results
-
-Scheduled task results appear as briefing cards on your **Home screen**. Each card shows:
-- The task name and schedule
-- When it last ran
-- The AI-generated result
-- Option to run it manually
-
-<Tip>
-  Scheduled tasks use the same tools as regular conversations — web search, file reading, connectors, and more. Anything you can ask Ori in a chat, you can schedule.
-</Tip>
-
-## Managing schedules
-
-Open your **Home screen** to see all active schedules. From there you can:
-- **Pause/resume** — Toggle schedules on and off
-- **Edit** — Change the prompt, timing, or frequency
-- **Delete** — Remove schedules you no longer need
-- **Run now** — Trigger a schedule immediately

@@ -28,9 +28,11 @@
               "features/memory",
               "features/computer-use",
               "features/scheduled-tasks",
+              "features/terminal",
+              "features/artifacts",
               "features/connectors",
               "features/skill-routing",
-              "features/spotlight",
+              "features/skill-registry",
               "features/project-awareness"
             ]
           },

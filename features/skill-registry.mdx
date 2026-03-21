@@ -1,0 +1,166 @@
+---
+title: "Skill Registry"
+description: "Browse, install, and manage community skill packs — right inside Ori."
+---
+
+The Skill Registry is an open, community-driven ecosystem of skill packs that extend what Ori can do. Install new capabilities with one click — no restart, no CLI, no Node.js required.
+
+<Note>
+  Skills are curated via open-source PR review. Every skill is a simple `SKILL.md` file — no executable code, no binaries.
+  [View the registry on GitHub →](https://github.com/open-ori/skill-registry)
+</Note>
+
+## How it works
+
+```
+Settings → Skills → Browse → Click "Install" → Done — skill is live
+```
+
+1. Open **Settings** and click the **Skills** tab
+2. Browse the full registry or search by name, category, or description
+3. Click **Install** on any skill
+4. Ori downloads the `SKILL.md`, indexes it into the Skill Graph, and the skill is immediately routable
+5. Just ask naturally — Ori's [Skill Tree routing](/features/skill-routing) picks the right skill automatically
+
+No restart needed. No manual configuration. The installed skill appears in your routing within milliseconds.
+
+## Available skills
+
+The registry ships with seed skills across multiple domains:
+
+| Skill | Category | What it does |
+|:------|:---------|:-------------|
+| **Email Drafting** | Communication | Write, revise, and polish professional emails with the right tone |
+| **Data Analysis** | Productivity | Analyze CSV, JSON, and spreadsheet data with summaries and insights |
+| **Meeting Notes** | Productivity | Structure meeting notes with action items, decisions, and follow-ups |
+| **Social Media** | Creative | Create engaging posts, captions, and threads for social platforms |
+| **Writing Assistant** | Creative | Improve clarity, grammar, tone, and structure across any writing |
+| **Git Workflow** | Development | Manage branches, commits, PRs, and review merge conflicts |
+| **API Testing** | Development | Test REST and GraphQL APIs with automated requests and analysis |
+| **Daily Planner** | Productivity | Plan your day with smart prioritization and time blocking |
+| **Study Helper** | Education | Create flashcards, summaries, and study plans from any material |
+| **Home Automation** | Automation | Write scripts and configs for smart home devices and automation |
+
+<Tip>
+  The registry is growing. [Contributing a skill](https://github.com/open-ori/skill-registry#contributing) is as simple as opening a PR with a `SKILL.md` file.
+</Tip>
+
+## Installing skills
+
+### From the in-app browser
+
+This is the recommended way for most users:
+
+1. Go to **Settings → Skills**
+2. Browse or search the available skills
+3. Click **Install** — done
+
+The skill is downloaded, indexed, and immediately available for routing.
+
+### From a GitHub URL
+
+You can install any skill from a GitHub repository:
+
+1. Go to **Settings → Skills**
+2. Scroll to **Install from GitHub**
+3. Paste the repository URL (e.g., `github.com/username/my-custom-skill`)
+4. Click **Install**
+
+Ori looks for a `SKILL.md` file in the repository root.
+
+### Via chat
+
+You can also ask Ori to install skills conversationally:
+
+> "Install the email drafting skill"
+
+Ori searches the registry, finds the match, and installs it.
+
+## Uninstalling skills
+
+1. Go to **Settings → Skills**
+2. Hover over any installed skill
+3. Click the **trash icon** that appears
+4. The skill is removed from disk and unregistered from the Skill Graph
+
+## How skills work under the hood
+
+Every skill is a `SKILL.md` file with two parts:
+
+### 1. YAML frontmatter (metadata)
+
+```yaml
+---
+name: Email Drafting
+domain: business
+tier: community
+description: Write professional emails with the right tone
+category: communication
+version: "1.0.0"
+author: open-ori
+exemplars:
+  - "Draft an email to my manager about the project delay"
+  - "Write a professional follow-up email"
+negativeExemplars:
+  - "What's the weather today?"
+tools:
+  - writeFile
+  - webSearch
+---
+```
+
+Key fields:
+- **exemplars** — example queries this skill is good for. Used by Skill Tree routing to match user queries
+- **negativeExemplars** — queries this skill should *not* match. Prevents false positives
+- **tools** — which of Ori's built-in tools this skill needs
+- **tier** — always `community` for registry skills
+
+### 2. Markdown body (system prompt)
+
+The body of the `SKILL.md` is injected as a system prompt when the skill is activated:
+
+```markdown
+You are an expert email communication assistant.
+
+## Guidelines
+- Match the appropriate tone (formal, casual, friendly)
+- Structure emails with clear subject lines
+- Keep emails concise and actionable
+```
+
+This gives the AI specific instructions for the domain, making responses more focused and expert.
+
+## Security model
+
+- **No executable code** — skills are instruction files, not scripts
+- **PR-reviewed** — every skill in the official registry is reviewed before merging
+- **Sandboxed by Ori** — skills use Ori's existing tool system with the same permission model
+- **Local storage** — installed skills are stored in `~/.ori/skills/`
+- **You can uninstall anytime** — one click removes the skill completely
+
+## Creating your own skill
+
+Want to create a skill for the community?
+
+<Steps>
+<Step title="Fork the registry">
+  Fork [open-ori/skill-registry](https://github.com/open-ori/skill-registry) on GitHub.
+</Step>
+<Step title="Create your skill folder">
+  Add a new folder under `skills/` with your skill's slug (e.g., `skills/my-skill/`).
+</Step>
+<Step title="Write your SKILL.md">
+  Define the frontmatter (name, exemplars, tools) and the system prompt in the markdown body.
+</Step>
+<Step title="Open a PR">
+  Submit a pull request. The maintainers will review for quality and safety.
+</Step>
+</Steps>
+
+→ [Full contribution guide](https://github.com/open-ori/skill-registry#contributing)
+
+## Storage
+
+- **Registry cache**: `~/.ori/registry-cache.json` (refreshes every hour)
+- **Installed skills**: `~/.ori/skills/<slug>/SKILL.md`
+- **Install metadata**: `~/.ori/skills/<slug>/install.json`
