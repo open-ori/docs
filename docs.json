@@ -28,6 +28,8 @@
               "features/memory",
               "features/computer-use",
               "features/scheduled-tasks",
+              "features/plans",
+              "features/notifications",
               "features/terminal",
               "features/artifacts",
               "features/connectors",

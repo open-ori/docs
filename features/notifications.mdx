@@ -1,0 +1,68 @@
+---
+title: "Notifications & Inbox"
+description: "Get native desktop notifications when Ori needs your attention, with a persistent in-app inbox that stores every alert."
+---
+
+Ori can send you **native desktop notifications** — the same kind of banners you get from Slack or Mail. Every notification is also stored in a persistent **inbox** so you never miss anything.
+
+## How it works
+
+Ori sends notifications when:
+
+- A **scheduled task** completes and has something to report
+- Ori wants your **attention** on something (a question, an approval needed, a result)
+- You've asked Ori to **notify you** about something specific
+
+```
+Watch for changes in the package.json and let me know if anything gets updated
+```
+
+## Notification types
+
+| Type | Description |
+|:-----|:-----------|
+| **Informational** | Results, summaries, status updates |
+| **Action needed** | Ori needs your input or approval |
+| **Alert** | Something unexpected happened |
+
+## Native desktop notifications
+
+Notifications use your operating system's native notification system:
+
+- **macOS** — Notification Center banners
+- **Windows** — Windows notification toasts
+- **Linux** — System notification daemon
+
+They work even when Ori is **minimized to the tray** — you don't need to have the window open.
+
+## Inbox
+
+Every notification is stored in the **inbox** — a persistent log of all alerts. Access it from the Home view or the activity bar.
+
+The inbox shows:
+
+- **Unread count** badge on the activity bar
+- **Notification list** with timestamps and content
+- **Mark as read** — clear individual notifications
+- **Clear all** — dismiss everything at once
+
+<Tip>
+  Agent-generated informational notifications auto-dismiss from the inbox after 12 hours to keep things tidy. Important alerts stay until you manually clear them.
+</Tip>
+
+## Home view widget
+
+The Home view shows an **inbox summary widget** when you have unread notifications:
+
+- Unread count
+- Most recent notification preview
+- Quick link to view the full inbox
+
+## Using notifications with schedules
+
+Notifications pair naturally with [Scheduled Tasks](/features/scheduled-tasks). A typical workflow:
+
+1. Create a schedule: "Every morning at 8am, check if our API is passing all tests"
+2. Ori runs the check on schedule
+3. If tests fail, Ori sends a notification: "3 tests failing in auth.test.ts"
+4. You click the notification to see the full results in the linked thread

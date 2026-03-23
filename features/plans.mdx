@@ -1,0 +1,84 @@
+---
+title: "Execution Plans"
+description: "Break complex work into multi-phase plans with tracked substeps — Ori manages progress, statuses, and proposed edits as things evolve."
+---
+
+For complex tasks, Ori can create **execution plans** — structured, multi-phase work breakdowns that track progress across your conversation.
+
+## How it works
+
+When you ask Ori to tackle something substantial — a multi-step refactor, a research project, a migration — it can break the work into phases with substeps:
+
+```
+Help me migrate our API from Express to Hono. Plan it out first.
+```
+
+Ori creates a plan with phases like:
+
+1. **Audit current routes** — list all Express endpoints, middleware, and patterns
+2. **Set up Hono** — install dependencies, create the app skeleton
+3. **Migrate routes** — convert each endpoint to Hono syntax
+4. **Update middleware** — adapt auth, logging, and error handling
+5. **Test and verify** — run the test suite, fix regressions
+
+Each phase can have substeps, and Ori tracks the status of each one as work progresses.
+
+## Plan cards
+
+Plans appear inline in your chat as **timeline cards**. Each card shows:
+
+- **Plan title** — what the overall plan is about
+- **Phase list** — each phase with its status indicator
+- **Progress** — visual indication of completed, in-progress, and pending phases
+
+## Statuses
+
+| Status | Meaning |
+|:-------|:--------|
+| **Pending** | Not started yet |
+| **In Progress** | Currently being worked on |
+| **Done** | Completed |
+| **Blocked** | Waiting on something else |
+| **Skipped** | Decided to skip this phase |
+
+## Managing plans
+
+### Sidebar panel
+
+Click the **ListTodo icon** in the activity bar to open the Plans panel. From there you can:
+
+- **View all plans** — see every plan across your conversations
+- **Click to preview** — opens the plan detail view in the right panel
+- **Track progress** — see which phases are complete at a glance
+
+### Detail panel
+
+Click any plan in the sidebar list to open its **detail view**. This shows the full plan with all phases, substeps, and notes.
+
+## Editing plans
+
+Plans aren't static. As Ori works through each phase, it can:
+
+- **Update phase statuses** — mark phases as complete, blocked, or skipped
+- **Propose edits** — suggest changes to the plan as new information comes to light
+
+You can also ask Ori to modify the plan at any time:
+
+```
+Actually, let's skip the middleware migration for now. Focus on routes first.
+```
+
+<Tip>
+  Plans are especially useful for long-running tasks that span multiple messages. Even if you close and reopen the conversation, the plan's state is preserved.
+</Tip>
+
+## When to use plans
+
+Plans work best for:
+
+- **Multi-step refactors** — migrating frameworks, restructuring code
+- **Research projects** — investigating a topic with multiple angles
+- **Release checklists** — tracking all the steps needed for a deployment
+- **Learning paths** — working through a tutorial or concept step by step
+
+For simple, single-step tasks, Ori handles them directly without creating a plan.

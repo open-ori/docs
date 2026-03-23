@@ -3,7 +3,7 @@ title: "Built-in Tools"
 description: "Every tool Ori ships with — file operations, shell commands, web search, computer control, and more."
 ---
 
-Ori ships with 22+ built-in tools. The [Skill Graph](/features/skill-routing) automatically picks the right ones — you never need to specify which tool to use.
+Ori ships with 30+ built-in tools. The [Skill Graph](/features/skill-routing) automatically picks the right ones — you never need to specify which tool to use.
 
 ## File system
 
@@ -41,6 +41,31 @@ Ori ships with 22+ built-in tools. The [Skill Graph](/features/skill-routing) au
 | **pressKey** | Press keyboard shortcuts with modifiers | Auto |
 | **mouseMove** | Move the cursor to coordinates | Auto |
 | **getActiveWindow** | Get app name, window title, and bounds | Auto |
+
+## Code intelligence
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **search** | Fast text search across files using pattern matching — like grep, but integrated | Auto |
+| **searchCode** | Semantic code search across your projects using the code intelligence index | Auto |
+
+<Note>
+  The **search** tool is great for finding exact strings, imports, or usages across your codebase. **searchCode** goes deeper — it understands your code structure and can find semantically related symbols.
+</Note>
+
+## Plans
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **createPlan** | Create a multi-phase execution plan with substeps | Auto |
+| **updatePhase** | Update the status of a plan phase (done, blocked, skipped) | Auto |
+| **proposePlanEdit** | Propose changes to an existing plan | Auto |
+
+## Notifications
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **notifyUser** | Send a native desktop notification with a message | Auto |
 
 ## System
 

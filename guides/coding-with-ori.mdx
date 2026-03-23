@@ -23,6 +23,20 @@ Find all files that import the useAuth hook
 
 Ori uses the **read** and **listDirectory** tools to explore your filesystem. It understands relative paths when it knows your project context.
 
+## Searching code
+
+Ori has two built-in search tools:
+
+```
+Search for all usages of the deprecated `fetchUser` function
+```
+
+```
+Find where the API_KEY environment variable is referenced
+```
+
+The **search** tool does fast text matching across files — like grep, but integrated into the conversation. For deeper queries, **searchCode** uses the code intelligence index to find semantically related symbols and definitions.
+
 ## Writing code
 
 Ori can create new files or modify existing ones:

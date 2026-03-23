@@ -47,6 +47,28 @@ Set up recurring agent jobs that run on autopilot.
 
 → [Learn more about scheduled tasks](/features/scheduled-tasks)
 
+### Execution plans
+
+For complex, multi-step work, Ori creates **execution plans** — structured breakdowns with tracked phases and substeps.
+
+- **Multi-phase plans** — break big tasks into manageable steps
+- **Live status tracking** — pending, in progress, done, blocked, skipped
+- **Sidebar panel** — view all plans and their progress at a glance
+- **Editable** — ask Ori to adjust, skip, or re-order phases as you go
+
+→ [Learn more about execution plans](/features/plans)
+
+### Notifications & inbox
+
+Ori can send you **native desktop notifications** and stores them in a persistent inbox.
+
+- **OS-native alerts** — macOS, Windows, and Linux notification systems
+- **Works in background** — get notified even when Ori is minimized to the tray
+- **Persistent inbox** — every notification stored, with unread count and one-click clear
+- **Pairs with schedules** — scheduled tasks can notify you when results are ready
+
+→ [Learn more about notifications](/features/notifications)
+
 ### Embedded terminal
 
 A full terminal panel lives inside Ori — powered by xterm.js with real PTY sessions.
@@ -90,7 +112,7 @@ Connect Ori to your digital life via MCP (Model Context Protocol):
 
 Every request flows through a **Skill Graph** that picks the right tools automatically. You never need to specify which tool to use.
 
-- 22+ built-in tools organized into semantic domains
+- 30+ built-in tools organized into semantic domains
 - Zero-token routing — no LLM calls needed for tool selection
 - Adapts based on your usage patterns
 
@@ -130,6 +152,18 @@ Extend Ori's capabilities by installing community skill packs — right from the
 - **pressKey** — Press keyboard shortcuts
 - **mouseMove** — Move the cursor
 - **getActiveWindow** — Identify the current app
+
+### Code intelligence
+- **search** — Fast text search across files using pattern matching
+- **searchCode** — Semantic code search using the code intelligence index
+
+### Plans
+- **createPlan** — Create multi-phase execution plans
+- **updatePhase** — Update plan phase statuses
+- **proposePlanEdit** — Propose changes to an existing plan
+
+### Notifications
+- **notifyUser** — Send native desktop notifications
 
 ### System
 - **systemInfo** — OS, CPU, memory, and environment info
