@@ -1,33 +1,90 @@
 ---
-title: "Scheduled Tasks"
-description: "Set up recurring agent jobs — morning briefings, PR digests, monitoring, and more — that run on autopilot."
+title: "Reminders & Scheduled Tasks"
+description: "Set one-time reminders, recurring alerts, and autonomous agent jobs — Ori handles timing so you don't have to."
 ---
 
-Scheduled tasks let you set up recurring agent jobs that run automatically. Think of them as cron jobs powered by AI.
+Ori has two scheduling systems that work together: **reminders** for quick time-based alerts, and **scheduled tasks** for recurring autonomous agent jobs.
 
-## How it works
+## Reminders (intents)
 
-1. Describe what you want ("Summarize my GitHub PRs every morning")
-2. Ori detects the schedule and creates the task — linked to the conversation thread
-3. The task runs on schedule — even when minimized to the tray
-4. Results appear in your briefing and the linked thread
+Reminders are lightweight, time-based nudges. Tell Ori when you need to be reminded, and it handles the rest.
 
-## Creating a task
+### Setting a reminder
 
-You can create scheduled tasks in two ways:
+Just say it naturally:
 
-### From conversation
-Just tell Ori what you want:
+```
+Remind me to take a walk in 30 minutes
+```
+
+```
+Remind me to call Sarah at 3pm
+```
+
+```
+Every morning at 9am, remind me to check my email
+```
+
+Ori creates an **intent** — a scheduled action that fires at the right time with a toast notification and an OS-native alert (banner on macOS, notification toast on Windows).
+
+### What happens when a reminder fires
+
+1. A **toast notification** appears in the app with the reminder message
+2. An **OS-native notification** pops up (even if Ori is minimized)
+3. One-shot reminders **auto-delete** after firing — no cleanup needed
+4. Recurring reminders advance to the next fire time automatically
+
+### Managing reminders
+
+You can manage your reminders conversationally:
+
+| You say... | Ori does... |
+|:-----------|:------------|
+| "What reminders do I have?" | Lists all pending reminders |
+| "Cancel the walk reminder" | Cancels it |
+| "Change my 3pm reminder to 4pm" | Reschedules it |
+| "Clear all old reminders" | Purges completed/fired reminders |
+
+<Tip>
+  Reminders are automatically cleaned up. One-shot reminders delete themselves after firing. On restart, any stale completed reminders are purged automatically.
+</Tip>
+
+### Recurrence options
+
+| Expression | Fires... |
+|:-----------|:---------|
+| `"daily"` / `"every day"` | Once per day at the same time |
+| `"weekly"` / `"every week"` | Once per week |
+| `"hourly"` / `"every hour"` | Every hour |
+| `"every 2 hours"` | Every 2 hours |
+| `"every 30 minutes"` | Every 30 minutes |
+| `"weekdays"` / `"every weekday"` | Monday through Friday |
+
+---
+
+## Scheduled tasks
+
+Scheduled tasks are more powerful — they're full **autonomous agent jobs** that run on a schedule. Unlike reminders (which are simple alerts), scheduled tasks execute tools, search the web, check connectors, and produce results.
+
+### Creating a task
+
+Tell Ori what you want automated:
+
 ```
 Every weekday at 9am, search Hacker News for AI developments and give me a 5-bullet summary
 ```
 
+```
+Every Friday at 5pm, summarize this week's Git commits
+```
+
+```
+Every 2 hours, check if example.com is responding
+```
+
 Ori detects the recurring intent, creates the schedule, and links it to the current thread.
 
-### From the sidebar
-Click the **CalendarClock icon** in the activity bar (always visible) to open the Schedules panel. From there you can manually create and manage schedules.
-
-## Example schedules
+### Example schedules
 
 | Schedule | What it does |
 |:---------|:-------------|
@@ -36,43 +93,42 @@ Click the **CalendarClock icon** in the activity bar (always visible) to open th
 | "Every Friday at 5pm, summarize this week's Git commits" | Weekly development digest |
 | "Every day at 9am, search for news about my competitors" | Competitive intelligence on autopilot |
 
-## Managing schedules
+### Managing schedules
 
-### Sidebar panel
-The **Schedules panel** in the sidebar gives you full control:
+#### Sidebar panel
+The **Schedules panel** in the sidebar (CalendarClock icon) gives you full control:
 - **View all schedules** — see every active and paused schedule
 - **Toggle on/off** — pause and resume individual schedules
 - **Delete** — remove schedules you no longer need
 - **Click to preview** — opens details in the right panel for editing
 
-### Preview panel
+#### Preview panel
 Click any schedule in the sidebar list to open its **detail view** in the right panel. From there you can:
 - Edit the prompt, frequency, or timing
-- See the linked thread (if created from a conversation)
+- See the linked thread
 - Review the last run time and next scheduled run
 
-### Home view
-A compact **schedule summary** appears on the Home screen when you have active schedules. It shows:
-- Number of active schedules
-- Time until the next run
-- Click to navigate to the linked thread
+#### Home view
+A compact **schedule summary** appears on the Home screen when you have active schedules.
 
-## Thread linking
+### Thread linking
 
-Schedules created from conversations are **linked to their thread**. This means:
-- Clicking a schedule in the sidebar opens the right-side preview
-- Clicking a schedule on the Home view navigates to the conversation that created it
+Schedules created from conversations are **linked to their thread**:
+- Click a schedule on the Home view to jump to the conversation that created it
 - Past run results appear in the linked thread's context
 
 <Tip>
   Scheduled tasks use the same tools as regular conversations — web search, file reading, connectors, and more. Anything you can ask Ori in a chat, you can schedule.
 </Tip>
 
-## Schedule options
+---
 
-| Field | Description | Examples |
-|:------|:-----------|:---------|
-| **Prompt** | What Ori should do each run | "Summarize top HN stories" |
-| **Frequency** | How often to run | Every hour, daily, weekly, custom |
-| **Time** | When to run (for daily/weekly) | 9:00 AM, 5:00 PM |
-| **Days** | Which days (for weekly) | Mon-Fri, weekends only |
+## Reminders vs. scheduled tasks
+
+| | Reminders | Scheduled tasks |
+|---|---|---|
+| **Purpose** | Quick alerts at a specific time | Autonomous agent jobs |
+| **Complexity** | Simple notification | Full tool execution |
+| **Output** | Toast + OS notification | Rich results in linked thread |
+| **Cleanup** | Auto-deletes after firing | Persists until you delete |
+| **Example** | "Remind me to call Sarah at 3pm" | "Every morning, summarize my PRs" |

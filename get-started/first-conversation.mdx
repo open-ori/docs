@@ -49,7 +49,23 @@ Take a screenshot and describe what you see on my screen
 
 Ori captures your display and describes the content. It can also **click**, **type**, **scroll**, and **press keys** — try asking it to interact with what it sees.
 
-### 6. Create a scheduled task
+### 6. Set a reminder
+
+```
+Remind me to take a break in 20 minutes
+```
+
+Ori creates a **reminder** that fires in 20 minutes — you'll get a toast notification in the app and an OS-native alert, even if Ori is minimized. One-shot reminders auto-delete after firing.
+
+### 7. Create a plan
+
+```
+Plan out building a REST API with Express. Include auth, validation, and testing.
+```
+
+Ori creates an **execution plan** — a multi-phase breakdown with tracked substeps. Each phase shows its status (pending, in progress, done) and you can ask Ori to work through them one by one.
+
+### 8. Create a scheduled task
 
 ```
 Every weekday at 9am, summarize the top 5 Hacker News stories
@@ -93,11 +109,17 @@ Your Home screen shows:
   <Card title="What can Ori do?" icon="sparkles" href="/get-started/what-can-ori-do">
     The complete feature list with examples.
   </Card>
-  <Card title="Coding with Ori" icon="code" href="/guides/coding-with-ori">
-    Read code, write files, run commands, manage Git.
+  <Card title="Reminders & scheduling" icon="clock" href="/features/scheduled-tasks">
+    Set reminders, create recurring jobs, and let Ori manage your time.
+  </Card>
+  <Card title="Ambient intelligence" icon="radar" href="/features/ambient-intelligence">
+    How Ori works in the background to surface what matters.
   </Card>
   <Card title="Memory system" icon="brain" href="/features/memory">
     How Ori learns and remembers — and how you control it.
+  </Card>
+  <Card title="Coding with Ori" icon="code" href="/guides/coding-with-ori">
+    Read code, write files, run commands, manage Git.
   </Card>
   <Card title="Computer Use" icon="display" href="/features/computer-use">
     Automate your screen — clicks, typing, scrolling, and more.

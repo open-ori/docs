@@ -1,6 +1,6 @@
 ---
 title: "Built-in Tools"
-description: "Every tool Ori ships with — file operations, shell commands, web search, computer control, and more."
+description: "Every tool Ori ships with — file operations, shell commands, web search, computer control, scheduling, plans, and more."
 ---
 
 Ori ships with 30+ built-in tools. The [Skill Graph](/features/skill-routing) automatically picks the right ones — you never need to specify which tool to use.
@@ -53,6 +53,35 @@ Ori ships with 30+ built-in tools. The [Skill Graph](/features/skill-routing) au
   The **search** tool is great for finding exact strings, imports, or usages across your codebase. **searchCode** goes deeper — it understands your code structure and can find semantically related symbols.
 </Note>
 
+## Reminders & intents
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **scheduleIntent** | Create a reminder or scheduled intent with a due time and optional recurrence | Auto |
+| **listIntents** | List all reminders — filter by status (pending, fired, cancelled, all) | Auto |
+| **cancelIntent** | Cancel a pending reminder or remove a completed one. Pass `"all"` to purge all completed | Auto |
+| **updateIntent** | Reschedule a reminder — change its time, description, or recurrence | Auto |
+
+Example flow:
+```
+You: "Remind me to call Sarah in 30 minutes"
+→ scheduleIntent({body: "Call Sarah", dueAt: "...", category: "reminder"})
+
+You: "What reminders do I have?"
+→ listIntents({status: "pending"})
+
+You: "Cancel the Sarah reminder"
+→ listIntents → cancelIntent({intentId: "..."})
+```
+
+## Schedules
+
+| Tool | What it does | Approval |
+|:-----|:------------|:---------|
+| **createSchedule** | Create a recurring scheduled task with a prompt and frequency | Auto |
+| **listSchedules** | List all scheduled tasks with their status and next run time | Auto |
+| **deleteSchedule** | Delete a scheduled task by ID | Auto |
+
 ## Plans
 
 | Tool | What it does | Approval |
@@ -60,6 +89,8 @@ Ori ships with 30+ built-in tools. The [Skill Graph](/features/skill-routing) au
 | **createPlan** | Create a multi-phase execution plan with substeps | Auto |
 | **updatePhase** | Update the status of a plan phase (done, blocked, skipped) | Auto |
 | **proposePlanEdit** | Propose changes to an existing plan | Auto |
+| **listPlans** | List all plans across your conversations | Auto |
+| **deletePlan** | Delete a plan by ID | Auto |
 
 ## Notifications
 

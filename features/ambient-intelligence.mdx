@@ -1,0 +1,98 @@
+---
+title: "Ambient Intelligence"
+description: "Ori works in the background — monitoring your services, firing reminders, and surfacing what matters without you asking."
+---
+
+Ori isn't just reactive. It runs a **background intelligence cycle** that monitors your connected services, fires reminders on time, and learns what's worth your attention — all silently, without interrupting your flow.
+
+## How it works
+
+The ambient system has three layers:
+
+```
+┌────────────────────────────────────────────┐
+│           Your connected services          │
+│    (GitHub, Gmail, Calendar, Slack, ...)    │
+└──────────────────┬─────────────────────────┘
+                   │
+         ┌─────────▼─────────┐
+         │   Ambient Cycle   │  ← runs every 5 min
+         │   (same agent)    │
+         └─────────┬─────────┘
+                   │
+    ┌──────────────┼──────────────┐
+    ▼              ▼              ▼
+ Intents      Connector       Learning
+ (reminders)  observation     (triage)
+```
+
+1. **Intent firing** — checks every 5 seconds for due reminders and delivers them instantly
+2. **Connector observation** — every 5 minutes, scans your connected services for things worth surfacing
+3. **Triage learning** — tracks what you engage with vs. dismiss to improve relevance over time
+
+## The ambient cycle
+
+The ambient cycle uses the **same agent pipeline** as your regular conversations — same model, same tools, same Skill Graph routing. The only difference is the prompt, which includes:
+
+- Current time and time zone
+- Due reminders and pending intents
+- Connected services to check
+- Learned triage hints (what you care about)
+
+The agent decides what's worth surfacing and produces **ambient work items** — lightweight notifications that appear as toast messages.
+
+## Ambient work items
+
+When the cycle finds something noteworthy, it creates an ambient work item with one of three intents:
+
+| Intent | When used | Example |
+|:-------|:----------|:--------|
+| **Inform** | FYI, no action needed | "3 new stars on the ori repo today" |
+| **Request** | Needs your attention | "Reminder: Walk the dog" |
+| **Report** | Detailed result for review | "Weekly PR digest: 12 merged, 3 open" |
+
+Each item can include action buttons like **Got it**, **Snooze**, or **Dismiss**.
+
+## Smart timing
+
+The cycle adapts to your schedule:
+
+| Time | Behavior |
+|:-----|:---------|
+| **Normal hours** (7AM–11PM) | Full cycle every 5 minutes |
+| **Quiet hours** (11PM–7AM) | Skips cycles unless there are due reminders |
+| **After idle** (10+ min away) | Burst-on-focus: runs immediately when you return |
+
+Burst-on-focus means when you come back to Ori after a break, you see fresh notifications immediately — no waiting for the next 5-minute tick.
+
+## Triage learning
+
+The ambient system learns from your behavior:
+
+- **Engaged** — you clicked, replied, or acted on a notification → more of these
+- **Dismissed** — you swiped it away → fewer of these
+- **Snoozed** — you wanted it later → adjust timing
+
+Over time, Ori gets better at knowing what's worth interrupting you for and what can wait.
+
+## Using it
+
+You don't configure the ambient system directly — it runs automatically once you've connected services or set up reminders. Here's what activates it:
+
+| You do this... | Ambient system does this... |
+|:---------------|:----------------------------|
+| Connect GitHub | Monitors PRs, issues, and notifications |
+| Connect Gmail | Watches for important emails |
+| Connect Calendar | Alerts you before meetings |
+| Set a reminder ("remind me in 30 min") | Fires a toast + OS notification at the right time |
+| Create a scheduled task | Runs it on schedule in the background |
+
+## Privacy
+
+The ambient cycle uses your chosen AI provider — the same model you chat with. If you use [Ollama](/guides/using-ollama), the entire ambient system runs offline on your hardware.
+
+No data is stored externally. Ambient work items are kept in `~/.ori/ambient-work.json` and auto-expire after 24 hours.
+
+<Note>
+  The ambient system is completely transparent. Check the terminal output for `[ambient-cycle]` logs to see exactly what it's doing.
+</Note>

@@ -34,18 +34,29 @@ Ori can see and control your screen — like a human sitting at your desk.
 
 → [Learn more about computer use](/features/computer-use)
 
-### Scheduled tasks
+### Reminders & scheduled tasks
 
-Set up recurring agent jobs that run on autopilot.
+Ori handles time so you don't have to — from quick reminders to autonomous recurring jobs.
 
-- **Morning briefings** — "Summarize my GitHub PRs every morning at 9am"
-- **News digests** — "Every evening, give me the top AI news"
-- **Monitoring** — "Check my website every hour and alert me if it's down"
-- Runs even when Ori is in the background
+- **Quick reminders** — "Remind me to call Sarah in 30 minutes" → fires a toast + OS notification
+- **Recurring alerts** — "Every weekday at 9am, remind me to check my email"
+- **Autonomous agent jobs** — "Every morning, summarize my GitHub PRs" → runs tools, produces results
+- **Auto-cleanup** — one-shot reminders delete themselves after firing
+- **Full CRUD** — list, update, reschedule, cancel, or clear all from conversation
 - Manage from the **Schedules panel** in the sidebar — always accessible
-- Linked to threads — click a schedule to jump to its conversation
 
-→ [Learn more about scheduled tasks](/features/scheduled-tasks)
+→ [Learn more about reminders & scheduled tasks](/features/scheduled-tasks)
+
+### Ambient intelligence
+
+Ori works in the background — monitoring your services and surfacing what matters without you asking.
+
+- **Background cycle** — checks your connected services every 5 minutes
+- **Smart timing** — quiet hours (11PM–7AM), burst-on-focus after idle
+- **Triage learning** — learns from what you engage with vs. dismiss
+- **Native notifications** — OS-level alerts even when Ori is minimized
+
+→ [Learn more about ambient intelligence](/features/ambient-intelligence)
 
 ### Execution plans
 
@@ -157,10 +168,23 @@ Extend Ori's capabilities by installing community skill packs — right from the
 - **search** — Fast text search across files using pattern matching
 - **searchCode** — Semantic code search using the code intelligence index
 
+### Reminders & intents
+- **scheduleIntent** — Create reminders with a due time and optional recurrence
+- **listIntents** — List reminders by status (pending, fired, cancelled, all)
+- **cancelIntent** — Cancel or remove reminders. Pass `"all"` to purge completed
+- **updateIntent** — Reschedule a reminder — change its time, description, or recurrence
+
+### Schedules
+- **createSchedule** — Create recurring autonomous agent jobs
+- **listSchedules** — List all scheduled tasks with status and next run
+- **deleteSchedule** — Delete a scheduled task
+
 ### Plans
 - **createPlan** — Create multi-phase execution plans
 - **updatePhase** — Update plan phase statuses
 - **proposePlanEdit** — Propose changes to an existing plan
+- **listPlans** — List all plans across conversations
+- **deletePlan** — Delete a plan
 
 ### Notifications
 - **notifyUser** — Send native desktop notifications
